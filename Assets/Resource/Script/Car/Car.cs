@@ -27,6 +27,8 @@ public partial class Car : MonoBehaviour
     private Quaternion initialRotation; //기본 회전값
     private Vector3 initialPosition;    //기본 위치값
 
+    //public float downforceAtSpeed = 100f; // 최대 속도에서 다운포스 (N)
+
     public float currentSpeed { get; private set; } // 현재 속도 (읽기 전용)
 
     private Rigidbody rigidBody; // Rigidbody 컴포넌트
@@ -51,6 +53,10 @@ public partial class Car : MonoBehaviour
         float verticalInput = Input.GetAxis("Vertical"); // 전진/후진 (W/S 또는 위/아래 화살표)
         float horizontalInput = Input.GetAxis("Horizontal"); // 좌/우 (A/D 또는 좌/우 화살표)
         bool isBraking = Input.GetKey(KeyCode.Space); // 스페이스바 누르면 브레이크
+
+        //float speedFactor = Mathf.Clamp01(rigidBody.velocity.magnitude / maxSpeed);
+        //Vector3 downforce = Vector3.down * downforceAtSpeed * speedFactor;
+        //rigidBody.AddForce(downforce);
 
 
         // 엔진 토크 적용
@@ -79,14 +85,7 @@ public partial class Car : MonoBehaviour
             currentSpeed = Mathf.Max(currentSpeed, 0f); // 최소 속도 0
         }
 
-        switch(currentSpeed)
-        {
-            case 100:
-            case 110:
-            case 120:
-                Debug.Log((int)currentSpeed);
-                break;
-        }
+        //Debug.Log((int)currentSpeed);
     }
 
     void Update()

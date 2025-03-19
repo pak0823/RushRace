@@ -78,6 +78,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2048616764513898630}
   - component: {fileID: 5057114853527505778}
+  - component: {fileID: 2814960898339292557}
   m_Layer: 0
   m_Name: Test
   m_TagString: Untagged
@@ -129,6 +130,39 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &2814960898339292557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3225874551983908691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1415d9d0250aea44bbe130495c38a17a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  frontLeftWheel:
+    wheelCollider: {fileID: 643436772051291040}
+    wheelTransform: {fileID: 1375928499914264263}
+    rotationSpeedMultiplier: 0.8
+  frontRightWheel:
+    wheelCollider: {fileID: 3826889084247440188}
+    wheelTransform: {fileID: 3651334431225305174}
+    rotationSpeedMultiplier: 0.8
+  rearLeftWheel:
+    wheelCollider: {fileID: 1127428634519443339}
+    wheelTransform: {fileID: 9102473396435809318}
+    rotationSpeedMultiplier: 0.6
+  rearRightWheel:
+    wheelCollider: {fileID: 6721235449119894616}
+    wheelTransform: {fileID: 5522088464764837296}
+    rotationSpeedMultiplier: 0.6
+  motorTorque: 1000
+  brakeTorque: 400
+  maxSteerAngle: 20
+  decelerationRate: 100
+  maxSpeed: 200
 --- !u!1 &3263149667454813771
 GameObject:
   m_ObjectHideFlags: 0
@@ -473,6 +507,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 604dbcfe609114642ab5e90c7667f3e6, type: 3}
+--- !u!146 &3826889084247440188 stripped
+WheelCollider:
+  m_CorrespondingSourceObject: {fileID: 4441812741099847219, guid: 604dbcfe609114642ab5e90c7667f3e6, type: 3}
+  m_PrefabInstance: {fileID: 630409936054781199}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6839842744805250890 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6220503268830368325, guid: 604dbcfe609114642ab5e90c7667f3e6, type: 3}
@@ -540,6 +579,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5114187411242114739, guid: 7c17016f7b346944b816a497abcac3a5, type: 3}
   m_PrefabInstance: {fileID: 1402726523638531915}
   m_PrefabAsset: {fileID: 0}
+--- !u!146 &6721235449119894616 stripped
+WheelCollider:
+  m_CorrespondingSourceObject: {fileID: 5634526847572355859, guid: 7c17016f7b346944b816a497abcac3a5, type: 3}
+  m_PrefabInstance: {fileID: 1402726523638531915}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1526437392818403401
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -597,6 +641,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a8b8022cb8cae04db1ca40bc813b645, type: 3}
+--- !u!146 &643436772051291040 stripped
+WheelCollider:
+  m_CorrespondingSourceObject: {fileID: 2144572061272175593, guid: 8a8b8022cb8cae04db1ca40bc813b645, type: 3}
+  m_PrefabInstance: {fileID: 1526437392818403401}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6348546455482951621 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5563194472636882828, guid: 8a8b8022cb8cae04db1ca40bc813b645, type: 3}
@@ -786,5 +835,10 @@ PrefabInstance:
 --- !u!4 &654100512100050038 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5063789634160507585, guid: 91bb9e7ce6db07a4aaa595eab2e31bd8, type: 3}
+  m_PrefabInstance: {fileID: 5716727248664321719}
+  m_PrefabAsset: {fileID: 0}
+--- !u!146 &1127428634519443339 stripped
+WheelCollider:
+  m_CorrespondingSourceObject: {fileID: 4679393370018957628, guid: 91bb9e7ce6db07a4aaa595eab2e31bd8, type: 3}
   m_PrefabInstance: {fileID: 5716727248664321719}
   m_PrefabAsset: {fileID: 0}
