@@ -28,6 +28,7 @@ public partial class Car : MonoBehaviour
     private Vector3 initialPosition;    //기본 위치값
 
     //public float downforceAtSpeed = 100f; // 최대 속도에서 다운포스 (N)
+    public bool isBraking; // 브레이크 상태
 
     public float currentSpeed { get; private set; } // 현재 속도 (읽기 전용)
 
@@ -52,11 +53,10 @@ public partial class Car : MonoBehaviour
         // 입력 받기
         float verticalInput = Input.GetAxis("Vertical"); // 전진/후진 (W/S 또는 위/아래 화살표)
         float horizontalInput = Input.GetAxis("Horizontal"); // 좌/우 (A/D 또는 좌/우 화살표)
-        bool isBraking = Input.GetKey(KeyCode.Space); // 스페이스바 누르면 브레이크
 
-        //float speedFactor = Mathf.Clamp01(rigidBody.velocity.magnitude / maxSpeed);
-        //Vector3 downforce = Vector3.down * downforceAtSpeed * speedFactor;
-        //rigidBody.AddForce(downforce);
+        // 브레이크를 누르는 동안 엔진 토크 감소
+        float engineTorqueMultiplier = isBraking ? 0.2f : 1f; // 브레이크 시 엔진 토크 20%로 감소
+        float currentMotorTorque = verticalInput * motorTorque * engineTorqueMultiplier;
 
 
         // 엔진 토크 적용
@@ -83,7 +83,9 @@ public partial class Car : MonoBehaviour
             float decelerationAmount = decelerationRate * Time.fixedDeltaTime * (currentSpeed / maxSpeed);
             currentSpeed -= decelerationAmount;
             currentSpeed = Mathf.Max(currentSpeed, 0f); // 최소 속도 0
+            //Debug.Log("자연 감속 : " + decelerationAmount);
         }
+            
 
         //Debug.Log((int)currentSpeed);
     }
@@ -101,6 +103,8 @@ public partial class Car : MonoBehaviour
         {
             ResetVehicle();
         }
+        // 브레이크 입력 처리
+        isBraking = Input.GetKey(KeyCode.Space); // 스페이스바 누르면 브레이크
     }
 
     // 브레이크 토크 설정 함수
@@ -110,6 +114,9 @@ public partial class Car : MonoBehaviour
         frontRightWheel.wheelCollider.brakeTorque = torque;
         rearLeftWheel.wheelCollider.brakeTorque = torque;
         rearRightWheel.wheelCollider.brakeTorque = torque;
+
+        if (isBraking)
+            Debug.Log("현재 속도 :"+currentSpeed);
     }
 
     // 바퀴 회전 함수
