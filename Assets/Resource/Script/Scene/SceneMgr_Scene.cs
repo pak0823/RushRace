@@ -27,17 +27,20 @@ public partial class SceneMgr : MonoBehaviour
             case eSCENE.eSCENE_LOADING:
                 SceneManager.LoadScene("LoadingScene");
                 break;
+            case eSCENE.eSCENE_LOBBY:
+                SceneManager.LoadScene("LobbyScene");
+                break;
             case eSCENE.eSCENE_STAGE:
-                SceneManager.LoadScene("LoadingScene");
+                SceneManager.LoadScene("StageScene");
                 break;
             case eSCENE.eSCEME_INGAME:
-                SceneManager.LoadScene("LoadingScene");
+                SceneManager.LoadScene("IngameScene");
                 break;
             case eSCENE.eSCEME_TEST:
                 SceneManager.LoadScene("TestScene");
                 break;
             case eSCENE.eSCENE_END:
-                SceneManager.LoadScene("End");
+                SceneManager.LoadScene("EndScene");
                 break;
         }
     }

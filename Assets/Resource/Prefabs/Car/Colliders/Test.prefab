@@ -159,10 +159,11 @@ MonoBehaviour:
     wheelTransform: {fileID: 5522088464764837296}
     rotationSpeedMultiplier: 0.6
   motorTorque: 1000
-  brakeTorque: 400
+  brakeTorque: 2000
   maxSteerAngle: 20
   decelerationRate: 100
   maxSpeed: 200
+  isBraking: 0
 --- !u!1 &3263149667454813771
 GameObject:
   m_ObjectHideFlags: 0
@@ -210,7 +211,6 @@ GameObject:
   - component: {fileID: 2108959753631582087}
   - component: {fileID: 7955839671852070711}
   - component: {fileID: 286538718076198021}
-  - component: {fileID: 4536489128306859284}
   m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
@@ -285,27 +285,6 @@ MeshRenderer:
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!65 &286538718076198021
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7588791278407695539}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.7150017, y: 1.0937681, z: 4.4122295}
-  m_Center: {x: -0.004298985, y: 0.47092688, z: 0.0057911873}
---- !u!65 &4536489128306859284
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -458,6 +437,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1267322592115439739}
     m_Modifications:
+    - target: {fileID: 4441812741099847219, guid: 604dbcfe609114642ab5e90c7667f3e6, type: 3}
+      propertyPath: m_ForwardFriction.m_Stiffness
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4441812741099847219, guid: 604dbcfe609114642ab5e90c7667f3e6, type: 3}
+      propertyPath: m_SidewaysFriction.m_Stiffness
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 5560205880824702850, guid: 604dbcfe609114642ab5e90c7667f3e6, type: 3}
       propertyPath: m_Name
       value: Wheel_FrontRight
@@ -569,6 +556,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5634526847572355859, guid: 7c17016f7b346944b816a497abcac3a5, type: 3}
+      propertyPath: m_ForwardFriction.m_Stiffness
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5634526847572355859, guid: 7c17016f7b346944b816a497abcac3a5, type: 3}
+      propertyPath: m_SidewaysFriction.m_Stiffness
+      value: 1.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -592,6 +587,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1267322592115439739}
     m_Modifications:
+    - target: {fileID: 2144572061272175593, guid: 8a8b8022cb8cae04db1ca40bc813b645, type: 3}
+      propertyPath: m_ForwardFriction.m_Stiffness
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2144572061272175593, guid: 8a8b8022cb8cae04db1ca40bc813b645, type: 3}
+      propertyPath: m_SidewaysFriction.m_Stiffness
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2780549375515367039, guid: 8a8b8022cb8cae04db1ca40bc813b645, type: 3}
       propertyPath: m_Name
       value: Wheel_FrontLeft
@@ -783,6 +786,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1267322592115439739}
     m_Modifications:
+    - target: {fileID: 4679393370018957628, guid: 91bb9e7ce6db07a4aaa595eab2e31bd8, type: 3}
+      propertyPath: m_ForwardFriction.m_Stiffness
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4679393370018957628, guid: 91bb9e7ce6db07a4aaa595eab2e31bd8, type: 3}
+      propertyPath: m_SidewaysFriction.m_Stiffness
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 5063789634160507585, guid: 91bb9e7ce6db07a4aaa595eab2e31bd8, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.74
