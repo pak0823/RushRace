@@ -13,19 +13,12 @@ public class UI_Title : MonoBehaviour
 
     public void Start()
     {
-        //StartCoroutine("INextScene");
         OptionWindow.gameObject.SetActive(false);
     }
 
-    //IEnumerator INextScene()
-    //{
-    //    yield return new WaitForSeconds(3f);
-
-    //    OnBtnTitle();
-    //}
-    public void OnBtnGoToLobby()// 유니티에 연결할 땐 On~
+    public void OnBtnGoToLoading()
     {
-        Shared.SceneMgr.ChangeScene(eSCENE.eSCEME_TEST);
+        Shared.SceneMgr.ChangeScene(eSCENE.eSCENE_TEST);
     }
 
 
