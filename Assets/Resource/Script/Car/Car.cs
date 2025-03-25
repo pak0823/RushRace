@@ -114,9 +114,6 @@ public partial class Car : MonoBehaviour
         frontRightWheel.wheelCollider.brakeTorque = torque;
         rearLeftWheel.wheelCollider.brakeTorque = torque;
         rearRightWheel.wheelCollider.brakeTorque = torque;
-
-        if (isBraking)
-            Debug.Log("현재 속도 :"+currentSpeed);
     }
 
     // 바퀴 회전 함수

@@ -18,7 +18,7 @@ public class UI_Title : MonoBehaviour
 
     public void OnBtnGoToLoading()
     {
-        Shared.SceneMgr.ChangeScene(eSCENE.eSCENE_TEST);
+        Shared.SceneMgr.ChangeScene(eSCENE.eSCENE_LOBBY);
     }
 
 
