@@ -16,12 +16,17 @@ public partial class SceneMgr : MonoBehaviour
     public void ChangeScene(eSCENE _e, bool _Loading = false)//매개변수명에 _를 넣어서 사용하면 구분하여 보기 좋다. 그냥 사용해서 익숙해지자
     {
         if (Scene == _e)
+        {
+            Debug.Log("이미 같은 씬에 속해 있습니다");
             return;
+        }
+            
 
         // 로딩 씬으로 전환
         SceneManager.LoadScene("LoadingScene");
 
         // LoadingScene으로 전환 후 다음 씬 이름을 설정하는 코루틴 실행
+        Scene = _e;
         StartCoroutine(SetNextSceneName(_e));
     }
 
@@ -79,6 +84,15 @@ public partial class SceneMgr : MonoBehaviour
                     break;
                 case eSCENE.eSCENE_INGAME:
                     loadingScript.nextSceneName = "IngameScene";
+                    break;
+                case eSCENE.eSCENE_SHOP:
+                    loadingScript.nextSceneName = "ShopScene";
+                    break;
+                case eSCENE.eSCENE_REPAIR:
+                    loadingScript.nextSceneName = "RepairScene";
+                    break;
+                case eSCENE.eSCENE_PRACTICE:
+                    loadingScript.nextSceneName = "PracticeScene";
                     break;
                 case eSCENE.eSCENE_TEST:
                     loadingScript.nextSceneName = "TestScene";

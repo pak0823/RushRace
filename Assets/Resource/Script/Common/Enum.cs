@@ -5,6 +5,9 @@ public enum eSCENE//대문자를 사용해 enum의 규칙을 정해준다. 이름의 스타일은 자기
     eSCENE_LOBBY,
     eSCENE_STAGE,  
     eSCENE_INGAME,
+    eSCENE_SHOP,
+    eSCENE_REPAIR,
+    eSCENE_PRACTICE,
     eSCENE_TEST,
     eSCENE_END
 

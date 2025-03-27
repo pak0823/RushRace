@@ -1,58 +1,34 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UI_Title : MonoBehaviour
+public class UI_Title : UIBase
 {
-    public GameObject OptionWindow;//옵션창 오브젝트
-    public GameObject Credits;//크레딧창 오브젝트
+    public GameObject Credits;
+    private bool isCredit = false;
 
-    bool isCredit = false;
-
-    public void Start()
+    void Start()
     {
-        OptionWindow.gameObject.SetActive(false);
+        CloseOptionWindow();
     }
 
     public void OnBtnGoToLoading()
     {
-        Shared.SceneMgr.ChangeScene(eSCENE.eSCENE_LOBBY);
+        ChangeScene(eSCENE.eSCENE_LOBBY);
     }
 
-
-    public void OnBtnOpenOptionWindows()//옵션창 열기
+    public void OnBtnToggleCredits()
     {
-        OptionWindow.gameObject.SetActive(true);
-    }
-    public void OnBtnCloseOptionWindows()//옵션창 닫기
-    {
-        OptionWindow.gameObject.SetActive(false);
-    }
-
-    public void OnBtnOpenCreaditWindows()//크레딧 온오프
-    {
-        if(isCredit)
-        {
-            Credits.gameObject.SetActive(false);
-            isCredit = false;
-        }
-        else
-        {
-            Credits.gameObject.SetActive(true);
-            isCredit = true;
-        }
-            
+        isCredit = !isCredit;
+        if (Credits != null)
+            Credits.SetActive(isCredit);
     }
 
     public void OnBtnExitGame()
     {
 #if UNITY_EDITOR
-        EditorApplication.isPlaying = false; // 에디터에서 종료
+        UnityEditor.EditorApplication.isPlaying = false;
 #else
-        Application.Quit(); // 빌드된 게임에서 종료
+        Application.Quit();
 #endif
     }
-
 }

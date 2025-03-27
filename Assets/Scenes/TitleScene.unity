@@ -1541,8 +1541,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1674788443}
-        m_TargetAssemblyTypeName: UI_Title, Assembly-CSharp
-        m_MethodName: OnBtnOpenOptionWindows
+        m_TargetAssemblyTypeName: UIBase, Assembly-CSharp
+        m_MethodName: ToggleOptionWindow
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1694,17 +1694,29 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1674788443}
+    - target: {fileID: 3136824932474878951, guid: d4ce8cd216b013447b32415f15d5fb1a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ToggleOptionWindow
+      objectReference: {fileID: 0}
+    - target: {fileID: 3136824932474878951, guid: d4ce8cd216b013447b32415f15d5fb1a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UIBase, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 3435838599147432902, guid: d4ce8cd216b013447b32415f15d5fb1a, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3435838599147432902, guid: d4ce8cd216b013447b32415f15d5fb1a, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4325381500329631570, guid: d4ce8cd216b013447b32415f15d5fb1a, type: 3}
       propertyPath: m_Name
       value: OptionWindow
+      objectReference: {fileID: 0}
+    - target: {fileID: 4325381500329631570, guid: d4ce8cd216b013447b32415f15d5fb1a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4912071663570662247, guid: d4ce8cd216b013447b32415f15d5fb1a, type: 3}
       propertyPath: m_Pivot.x
@@ -1788,35 +1800,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5671677983099090877, guid: d4ce8cd216b013447b32415f15d5fb1a, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5671677983099090877, guid: d4ce8cd216b013447b32415f15d5fb1a, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6562267575407044496, guid: d4ce8cd216b013447b32415f15d5fb1a, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6562267575407044496, guid: d4ce8cd216b013447b32415f15d5fb1a, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6562267575407044496, guid: d4ce8cd216b013447b32415f15d5fb1a, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7213743901582335979, guid: d4ce8cd216b013447b32415f15d5fb1a, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7213743901582335979, guid: d4ce8cd216b013447b32415f15d5fb1a, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7213743901582335979, guid: d4ce8cd216b013447b32415f15d5fb1a, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -497,7 +497,7 @@ GameObject:
   - component: {fileID: 2850192765928480113}
   - component: {fileID: 1608219573813820825}
   m_Layer: 5
-  m_Name: ExitGame_Btn
+  m_Name: Title_Btn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1003,7 +1003,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: ExitGame
+  m_Text: Return To Title
 --- !u!1 &5464927947559337711
 GameObject:
   m_ObjectHideFlags: 0
