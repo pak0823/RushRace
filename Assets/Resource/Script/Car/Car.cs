@@ -36,6 +36,7 @@ public partial class Car : MonoBehaviour
 
     void Start()
     {
+        Shared.Car = this;
         rigidBody = GetComponent<Rigidbody>();
         if (rigidBody == null)
         {
@@ -98,11 +99,6 @@ public partial class Car : MonoBehaviour
         RotateWheel(rearLeftWheel);
         RotateWheel(rearRightWheel);
 
-        // R 키를 누르면 차량 초기화
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            ResetVehicle();
-        }
         // 브레이크 입력 처리
         isBraking = Input.GetKey(KeyCode.Space); // 스페이스바 누르면 브레이크
     }
@@ -121,23 +117,55 @@ public partial class Car : MonoBehaviour
     {
         if (wheel.wheelCollider != null && wheel.wheelTransform != null)
         {
+            if (currentSpeed <= 0.1f)
+                return;
+
             float maxRotationSpeed = 1000f;
             float rotationAngle = Mathf.Clamp(wheel.wheelCollider.rpm * 6 * Time.deltaTime * wheel.rotationSpeedMultiplier, -maxRotationSpeed * Time.deltaTime, maxRotationSpeed * Time.deltaTime);
             wheel.wheelTransform.Rotate(rotationAngle, 0, 0);
         }
     }
 
-    void ResetVehicle()
+    public void ResetVehicle()
     {
-        // 위치와 회전 초기화
-        transform.position = initialPosition;
-        transform.rotation = initialRotation;
+        // 1. WheelCollider 끄기
+        SetWheelColliderEnabled(false);
 
-        //Rigidbody 속도 초기화
         if (rigidBody != null)
         {
             rigidBody.velocity = Vector3.zero;
             rigidBody.angularVelocity = Vector3.zero;
+            rigidBody.isKinematic = true;
         }
+
+        // Transform 초기화
+        transform.position = initialPosition;
+        transform.rotation = initialRotation;
+
+        StartCoroutine(ResetFullPhysics());
     }
+
+    private IEnumerator ResetFullPhysics()
+    {
+        yield return new WaitForSeconds(0.1f); // 최소 한 프레임 이상 대기
+
+        //Rigidbody 활성화
+        rigidBody.isKinematic = false;
+
+        //WheelCollider 활성화
+        SetWheelColliderEnabled(true);
+
+        // 6. 속도 및 토크 0 설정
+        SetBrakeTorque(0f);
+        currentSpeed = 0;
+    }
+    
+    private void SetWheelColliderEnabled(bool enabled)
+    {
+        frontLeftWheel.wheelCollider.enabled = enabled;
+        frontRightWheel.wheelCollider.enabled = enabled;
+        rearLeftWheel.wheelCollider.enabled = enabled;
+        rearRightWheel.wheelCollider.enabled = enabled;
+    }
+
 }

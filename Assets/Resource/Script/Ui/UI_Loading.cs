@@ -13,7 +13,7 @@ public class UI_Loading : MonoBehaviour
 
     private AsyncOperation asyncOperation;
     private float targetProgress;   //목표 진행률
-    private float loadingDuration = 3.0f;   //2.5초동안 로딩 바 채우기
+    private float loadingDuration = 1.0f;   //지정 시간동안 로딩 바 채우기
 
     void Start()
     {
@@ -78,19 +78,19 @@ public class UI_Loading : MonoBehaviour
         switch(randNum)
         {
             case 0:
-                tip = "randNum = 0";
+                tip = "음주운전은 절대 해서는 안됩니다.";
                 break;
             case 1:
-                tip = "randNum = 1";
+                tip = "게임과 현실은 다릅니다.";
                 break;
             case 2:
-                tip = "randNum = 2";
+                tip = "좋은 차를 구입하여 더 높은 속도감을 즐기세요.";
                 break;
             case 3:
-                tip = "randNum = 3";
+                tip = "연습을 하여 실력을 향상시켜 보세요";
                 break;
             case 4:
-                tip = "randNum = 4";
+                tip = "이스터에그가 숨겨져 있는 맵이 있습니다.";
                 break;
             default:
                 tip = "버그라 팁 없음";
