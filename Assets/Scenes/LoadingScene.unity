@@ -464,9 +464,33 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1525699679973728502, guid: ec4f508174bb77d47af0c09bf5e637b3, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1525699679973728502, guid: ec4f508174bb77d47af0c09bf5e637b3, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 1525699679973728502, guid: ec4f508174bb77d47af0c09bf5e637b3, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
+      objectReference: {fileID: 0}
     - target: {fileID: 1819849336566817743, guid: ec4f508174bb77d47af0c09bf5e637b3, type: 3}
       propertyPath: m_Text
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1819849336566817743, guid: ec4f508174bb77d47af0c09bf5e637b3, type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1819849336566817743, guid: ec4f508174bb77d47af0c09bf5e637b3, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1819849336566817743, guid: ec4f508174bb77d47af0c09bf5e637b3, type: 3}
+      propertyPath: m_FontData.m_RichText
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2166592286716820368, guid: ec4f508174bb77d47af0c09bf5e637b3, type: 3}
       propertyPath: m_Name
@@ -483,6 +507,10 @@ PrefabInstance:
     - target: {fileID: 7675255893589801744, guid: ec4f508174bb77d47af0c09bf5e637b3, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8827995407704460821, guid: ec4f508174bb77d47af0c09bf5e637b3, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 800
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

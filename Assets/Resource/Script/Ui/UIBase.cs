@@ -1,16 +1,17 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIBase : MonoBehaviour
 {
-    protected bool isOptionShow = false;
-    public GameObject OptionWindow;
+    protected bool isShow = false;
+    public GameObject Window;
 
     public virtual void ToggleOptionWindow()
     {
-        if (OptionWindow == null) return;
+        if (Window == null) return;
 
-        isOptionShow = !isOptionShow;
-        OptionWindow.SetActive(isOptionShow);
+        isShow = !isShow;
+        Window.SetActive(isShow);
     }
 
     public void OpenOptionWindow() => SetOptionWindow(true);
@@ -18,9 +19,9 @@ public class UIBase : MonoBehaviour
 
     private void SetOptionWindow(bool show)
     {
-        isOptionShow = show;
-        if (OptionWindow != null)
-            OptionWindow.SetActive(show);
+        isShow = show;
+        if (Window != null)
+            Window.SetActive(show);
     }
 
     public void ChangeScene(eSCENE scene)

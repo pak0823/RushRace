@@ -78,22 +78,22 @@ public class UI_Loading : MonoBehaviour
         switch(randNum)
         {
             case 0:
-                tip = "음주운전은 절대 해서는 안됩니다.";
+                tip = "-음주운전은 절대 해서는 안됩니다.-";
                 break;
             case 1:
-                tip = "게임과 현실은 다릅니다.";
+                tip = "-게임과 현실은 다릅니다.-";
                 break;
             case 2:
-                tip = "좋은 차를 구입하여 더 높은 속도감을 즐기세요.";
+                tip = "-좋은 차를 구입하여 더 높은 속도감을 즐기세요.-";
                 break;
             case 3:
-                tip = "연습을 하여 실력을 향상시켜 보세요";
+                tip = "-연습을 하여 실력을 향상시켜 보세요.-";
                 break;
             case 4:
-                tip = "이스터에그가 숨겨져 있는 맵이 있습니다.";
+                tip = "-이스터에그가 숨겨져 있는 맵이 있습니다.-";
                 break;
             default:
-                tip = "버그라 팁 없음";
+                tip = "-버그라 팁 없음.-";
                 break;
         }
 
