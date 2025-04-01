@@ -6,5 +6,5 @@ public static class Shared
 {
     public static SceneMgr SceneMgr;
     public static Car Car;
-    public static StageIcon StageIcon;
+    public static UI_Stage UI_Stage;
 }
