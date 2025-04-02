@@ -1,6 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,7 +7,7 @@ using UnityEngine.SceneManagement;
     변경 및 추가 제거가 쉽고 그로 인해 유지보수가 좋다.
  
  */
-public partial class SceneMgr : MonoBehaviour
+public partial class SceneMgr
 {
     public eSCENE Scene = eSCENE.eSCENE_TITLE;
 

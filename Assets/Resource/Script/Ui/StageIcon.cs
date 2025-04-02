@@ -40,7 +40,6 @@ public class StageIcon : MonoBehaviour
     {
         if(!Shared.UI_Stage.isWindow)
         {
-            Debug.Log(gameObject.name);
             string clickedObjectName = gameObject.name;
 
             // 캡슐 이름을 스테이지 이름으로 매핑
