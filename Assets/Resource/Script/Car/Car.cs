@@ -4,35 +4,39 @@ using UnityEngine;
 
 public partial class Car : MonoBehaviour
 {
-    [System.Serializable] // Inspector 창에서 보기 위해 추가
+    // 바퀴 정보 구조체
+    [System.Serializable]
     public struct Wheel
     {
-        public WheelCollider wheelCollider;
-        public Transform wheelTransform; // 바퀴 모델 Transform
-        public float rotationSpeedMultiplier; // 바퀴 회전 속도 배율
+        public WheelCollider wheelCollider; // 물리용 WheelCollider
+        public Transform wheelTransform;    // 시각적 바퀴 모델
+        public float rotationSpeedMultiplier; // 회전 배율
     }
 
+    // 앞뒤 바퀴들
     public Wheel frontLeftWheel;
     public Wheel frontRightWheel;
     public Wheel rearLeftWheel;
     public Wheel rearRightWheel;
 
-    public float motorTorque = 300f; // 엔진 토크
-    public float brakeTorque = 500f; // 브레이크 힘
-    public float maxSteerAngle = 20f; // 최대 스티어링 각도
-    public float decelerationRate = 100f; // 감속 속도 (km/h/s)
+    // 차량 파라미터
+    public float motorTorque;             // 드리프트 중 출력을 유지하기 위해 상향
+    public float brakeTorque;             // 드리프트 중 감속 완화
+    public float maxSteerAngle;
+    public float decelerationRate;
     public float maxSpeed;
 
+    // 초기 위치 저장
+    private Quaternion initialRotation;
+    private Vector3 initialPosition;
 
-    private Quaternion initialRotation; //기본 회전값
-    private Vector3 initialPosition;    //기본 위치값
+    public bool isBraking;
+    public float currentSpeed { get; private set; }
 
-    //public float downforceAtSpeed = 100f; // 최대 속도에서 다운포스 (N)
-    public bool isBraking; // 브레이크 상태
+    private Rigidbody rigidBody;
 
-    public float currentSpeed { get; private set; } // 현재 속도 (읽기 전용)
-
-    private Rigidbody rigidBody; // Rigidbody 컴포넌트
+    // 최소 속도 정의 (회전 처리용)
+    private const float MinSpeedToRotateWheels = 0.1f;
 
     void Start()
     {
@@ -41,69 +45,79 @@ public partial class Car : MonoBehaviour
         if (rigidBody == null)
         {
             Debug.LogError("Rigidbody 컴포넌트가 없습니다!");
-            enabled = false; // 스크립트 비활성화
+            enabled = false;
         }
 
         initialRotation = transform.rotation;
         initialPosition = transform.position;
-
     }
 
     void FixedUpdate()
     {
-        // 입력 받기
-        float verticalInput = Input.GetAxis("Vertical"); // 전진/후진 (W/S 또는 위/아래 화살표)
-        float horizontalInput = Input.GetAxis("Horizontal"); // 좌/우 (A/D 또는 좌/우 화살표)
+        float verticalInput = Input.GetAxis("Vertical");
+        float horizontalInput = Input.GetAxis("Horizontal");
 
-        // 브레이크를 누르는 동안 엔진 토크 감소
-        float engineTorqueMultiplier = isBraking ? 0.2f : 1f; // 브레이크 시 엔진 토크 20%로 감소
-        float currentMotorTorque = verticalInput * motorTorque * engineTorqueMultiplier;
+        // 드리프트 조건: 브레이크 + 조향
+        bool isDrifting = isBraking && Mathf.Abs(horizontalInput) > 0.1f;
 
+        // 드리프트 중에도 충분한 엔진 토크 유지
+        float engineTorqueMultiplier = isDrifting ? 0.6f : 1f;
+        float adjustedMotorTorque = verticalInput * motorTorque * engineTorqueMultiplier;
+
+        // 후륜 마찰 조정 및 브레이크 분기 처리 포함
+        AdjustRearFrictionAndBraking(isDrifting);
+
+        // 조향 감도 계산
+        float baseSteerSensitivity = isDrifting ? 1.0f : 0.4f; // 일반 상태에서는 더 낮은 감도로 묵직하게 조향
+        float steerSensitivity = Mathf.Lerp(baseSteerSensitivity, 1.0f, Mathf.Clamp01(currentSpeed / maxSpeed));
+        float driftSteerFactor = isDrifting ? 1.25f : 1.0f;
+
+        // 조향 각도 보간 처리
+        float targetSteer = horizontalInput * maxSteerAngle * steerSensitivity * driftSteerFactor;
+        float steerLerpSpeed = isDrifting ? 5f : 2.5f; // 일반 상태에서 더 천천히 조향 변화
+        float steerAngle = Mathf.Lerp(frontLeftWheel.wheelCollider.steerAngle, targetSteer, Time.fixedDeltaTime * steerLerpSpeed);
+
+        // 드리프트 중 빠르게 회전 시 감속
+        if (isDrifting && Mathf.Abs(rigidBody.angularVelocity.y) > 1.0f)
+        {
+            Vector3 angular = rigidBody.angularVelocity;
+            angular.y *= 0.9f;
+            adjustedMotorTorque *= 0.9f;
+            rigidBody.angularVelocity = angular;
+        }
+
+        // 조향 적용 (전륜 + 후륜 일부)
+        ApplySteering(steerAngle, horizontalInput);
 
         // 엔진 토크 적용
-        frontLeftWheel.wheelCollider.motorTorque = verticalInput * motorTorque;
-        frontRightWheel.wheelCollider.motorTorque = verticalInput * motorTorque;
-        rearLeftWheel.wheelCollider.motorTorque = verticalInput * motorTorque;
-        rearRightWheel.wheelCollider.motorTorque = verticalInput * motorTorque;
+        ApplyMotorTorque(adjustedMotorTorque);
 
-        // 스티어링 적용
-        frontLeftWheel.wheelCollider.steerAngle = horizontalInput * maxSteerAngle;
-        frontRightWheel.wheelCollider.steerAngle = horizontalInput * maxSteerAngle;
+        // 속도 계산
+        currentSpeed = rigidBody.velocity.magnitude * 3.6f;
+        currentSpeed = Mathf.Min(currentSpeed, maxSpeed);
 
-        // 브레이크 적용
-        SetBrakeTorque(isBraking ? brakeTorque : 0f); // 브레이크 시 brakeTorque, 아니면 0
-
-        // 현재 속도 계산 (km/h)
-        currentSpeed = rigidBody.velocity.magnitude * 3.6f; // m/s -> km/h
-        currentSpeed = Mathf.Min(currentSpeed, maxSpeed); // 최대 속도 제한
-
-        // 감속 로직 (브레이크 시 비활성화)
+        // 자연 감속 처리
         if (verticalInput == 0 && !isBraking)
         {
-            // 현재 속도에 따라 감속량 조절
             float decelerationAmount = decelerationRate * Time.fixedDeltaTime * (currentSpeed / maxSpeed);
             currentSpeed -= decelerationAmount;
-            currentSpeed = Mathf.Max(currentSpeed, 0f); // 최소 속도 0
-            //Debug.Log("자연 감속 : " + decelerationAmount);
+            currentSpeed = Mathf.Max(currentSpeed, 0f);
         }
-            
-
-        //Debug.Log((int)currentSpeed);
     }
 
     void Update()
     {
-        // 바퀴 회전
-        RotateWheel(frontLeftWheel);
-        RotateWheel(frontRightWheel);
-        RotateWheel(rearLeftWheel);
-        RotateWheel(rearRightWheel);
+        // 바퀴 회전 처리
+        UpdateWheelPose(frontLeftWheel);
+        UpdateWheelPose(frontRightWheel);
+        UpdateWheelPose(rearLeftWheel);
+        UpdateWheelPose(rearRightWheel);
 
-        // 브레이크 입력 처리
-        isBraking = Input.GetKey(KeyCode.Space); // 스페이스바 누르면 브레이크
+        // 브레이크 입력 감지
+        isBraking = Input.GetKey(KeyCode.Space);
     }
 
-    // 브레이크 토크 설정 함수
+    // 모든 바퀴에 동일한 브레이크 토크 적용
     void SetBrakeTorque(float torque)
     {
         frontLeftWheel.wheelCollider.brakeTorque = torque;
@@ -112,23 +126,85 @@ public partial class Car : MonoBehaviour
         rearRightWheel.wheelCollider.brakeTorque = torque;
     }
 
-    // 바퀴 회전 함수
-    void RotateWheel(Wheel wheel)
+    // 회전 애니메이션 적용
+    public void UpdateWheelPose(Wheel wheel)
     {
-        if (wheel.wheelCollider != null && wheel.wheelTransform != null)
-        {
-            if (currentSpeed <= 0.1f)
-                return;
+        if (wheel.wheelCollider == null || wheel.wheelTransform == null)
+            return;
 
-            float maxRotationSpeed = 1000f;
-            float rotationAngle = Mathf.Clamp(wheel.wheelCollider.rpm * 6 * Time.deltaTime * wheel.rotationSpeedMultiplier, -maxRotationSpeed * Time.deltaTime, maxRotationSpeed * Time.deltaTime);
-            wheel.wheelTransform.Rotate(rotationAngle, 0, 0);
-        }
+        Vector3 pos;
+        Quaternion rot;
+        wheel.wheelCollider.GetWorldPose(out pos, out rot);
+
+        wheel.wheelTransform.position = pos;
+        wheel.wheelTransform.rotation = rot;
     }
 
+    // 조향 각도 적용 함수
+    void ApplySteering(float steerAngle, float horizontalInput)
+    {
+        frontLeftWheel.wheelCollider.steerAngle = steerAngle;
+        frontRightWheel.wheelCollider.steerAngle = steerAngle;
+        rearLeftWheel.wheelCollider.steerAngle = horizontalInput * maxSteerAngle * 0.2f;
+        rearRightWheel.wheelCollider.steerAngle = horizontalInput * maxSteerAngle * 0.2f;
+    }
+
+    // 엔진 토크 일괄 적용
+    void ApplyMotorTorque(float torque)
+    {
+        frontLeftWheel.wheelCollider.motorTorque = torque;
+        frontRightWheel.wheelCollider.motorTorque = torque;
+        rearLeftWheel.wheelCollider.motorTorque = torque;
+        rearRightWheel.wheelCollider.motorTorque = torque;
+    }
+
+    // 드리프트 여부에 따라 후륜 마찰 및 브레이크 분기 처리
+    void AdjustRearFrictionAndBraking(bool isDrifting)
+    {
+        WheelFrictionCurve frictionL = rearLeftWheel.wheelCollider.sidewaysFriction;
+        WheelFrictionCurve frictionR;
+
+        if (isDrifting)
+        {
+            // 더 강한 드리프트 효과를 위한 후륜 마찰 감소
+            frictionL.stiffness = 2.0f;
+            frictionL.extremumSlip = 0.3f;
+            frictionL.asymptoteSlip = 0.5f;
+            frictionL.asymptoteValue = 0.65f;
+
+            // 후륜만 약하게 제동 적용
+            ApplyBrakeForce(0f, brakeTorque * 0.2f);
+        }
+        else
+        {
+            // 일반 주행 시 더 높은 마찰값으로 미끄러짐 방지 강화
+            frictionL.stiffness = 7.0f; // 기존보다 더 높여서 안정감 강화
+            frictionL.extremumSlip = 0.04f;
+            frictionL.asymptoteSlip = 0.15f;
+            frictionL.asymptoteValue = 1.0f;
+
+            // 일반 브레이크 (전후 동일)
+            ApplyBrakeForce(isBraking ? brakeTorque : 0f, isBraking ? brakeTorque : 0f);
+        }
+
+        // 좌우 동일 적용
+        frictionR = frictionL;
+        rearLeftWheel.wheelCollider.sidewaysFriction = frictionL;
+        rearRightWheel.wheelCollider.sidewaysFriction = frictionR;
+    }
+
+    // 전륜, 후륜 브레이크 분리 적용
+    void ApplyBrakeForce(float frontTorque, float rearTorque)
+    {
+        frontLeftWheel.wheelCollider.brakeTorque = frontTorque;
+        frontRightWheel.wheelCollider.brakeTorque = frontTorque;
+        rearLeftWheel.wheelCollider.brakeTorque = rearTorque;
+        rearRightWheel.wheelCollider.brakeTorque = rearTorque;
+    }
+
+    // 차량 초기 위치/속도 리셋
     public void ResetVehicle()
     {
-        // 1. WheelCollider 끄기
         SetWheelColliderEnabled(false);
 
         if (rigidBody != null)
@@ -138,7 +214,6 @@ public partial class Car : MonoBehaviour
             rigidBody.isKinematic = true;
         }
 
-        // Transform 초기화
         transform.position = initialPosition;
         transform.rotation = initialRotation;
 
@@ -147,19 +222,16 @@ public partial class Car : MonoBehaviour
 
     private IEnumerator ResetFullPhysics()
     {
-        yield return new WaitForSeconds(0.1f); // 최소 한 프레임 이상 대기
+        yield return new WaitForSeconds(0.1f);
 
-        //Rigidbody 활성화
         rigidBody.isKinematic = false;
-
-        //WheelCollider 활성화
         SetWheelColliderEnabled(true);
 
-        // 6. 속도 및 토크 0 설정
         SetBrakeTorque(0f);
         currentSpeed = 0;
     }
-    
+
+    // WheelCollider On/Off 제어
     private void SetWheelColliderEnabled(bool enabled)
     {
         frontLeftWheel.wheelCollider.enabled = enabled;
@@ -167,5 +239,4 @@ public partial class Car : MonoBehaviour
         rearLeftWheel.wheelCollider.enabled = enabled;
         rearRightWheel.wheelCollider.enabled = enabled;
     }
-
 }
