@@ -15,7 +15,7 @@ public class RandomSpawn : MonoBehaviour
     [Header("경로 감지")]
     public LayerMask pathLayer; // 길에만 지정한 Layer
 
-    Collider colliderFloor;
+    public Collider colliderFloor;
 
     private void Awake()
     {
