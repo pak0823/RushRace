@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7165262366610345415}
   - component: {fileID: 2423481380210122114}
   - component: {fileID: 4729228951489430442}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: 2St_Curve_road
   m_TagString: Untagged
   m_Icon: {fileID: 0}
