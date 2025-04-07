@@ -1,32 +1,49 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class UIBase : MonoBehaviour
 {
-    protected bool isShow = false;
-    public GameObject Window;
+    protected bool isOptionShow = false;
+    protected bool isPauseShow = false;
+    public GameObject optionWindow;
+    public GameObject pauseWindow;
 
-    public virtual void ToggleOptionWindow()
+    public virtual void Update()
     {
-        if (Window == null) return;
-
-        isShow = !isShow;
-        Window.SetActive(isShow);
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (isOptionShow)
+                ToggleOptionWindow();
+            else if (isPauseShow)
+                TogglePauseWindow();
+        }
     }
 
-    public void OpenOptionWindow() => SetOptionWindow(true);
-    public void CloseOptionWindow() => SetOptionWindow(false);
-
-    private void SetOptionWindow(bool show)
+    public void ToggleOptionWindow()
     {
-        isShow = show;
-        if (Window != null)
-            Window.SetActive(show);
+        if (optionWindow == null) return;
+
+        isOptionShow = !isOptionShow;
+        optionWindow.SetActive(isOptionShow);
     }
 
+    public void TogglePauseWindow()
+    {
+        if (pauseWindow == null) return;
+
+        isPauseShow = !isPauseShow;
+        pauseWindow.SetActive(isPauseShow);
+    }
     public void ChangeScene(eSCENE scene)
     {
         Shared.SceneMgr.ChangeScene(scene);
     }
+
+    public void OnBtnGoTitle() => ChangeScene(eSCENE.eSCENE_TITLE);
+    public void OnBtnHome() => ChangeScene(eSCENE.eSCENE_LOBBY);
+    public void OnBtnRepeat() => Shared.Car.ResetVehicle();
+
+    
 }

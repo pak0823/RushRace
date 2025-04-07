@@ -6,11 +6,6 @@ public class UI_Title : UIBase
     public GameObject Credits;
     private bool isCredit = false;
 
-    void Start()
-    {
-        CloseOptionWindow();
-    }
-
     public void OnBtnGoToLoading()
     {
         ChangeScene(eSCENE.eSCENE_LOBBY);

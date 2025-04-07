@@ -698,7 +698,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1674788443}
         m_TargetAssemblyTypeName: UI_Title, Assembly-CSharp
-        m_MethodName: OnBtnOpenCreaditWindows
+        m_MethodName: OnBtnToggleCredits
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1315,7 +1315,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b13ca554ed716b34d8a2fdaef6b76503, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Window: {fileID: 1928185579}
+  optionWindow: {fileID: 1928185579}
+  pauseWindow: {fileID: 0}
   Credits: {fileID: 1083892476}
 --- !u!1 &1791212747
 GameObject:
@@ -1911,7 +1912,8 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 3519834593458942775, guid: d4ce8cd216b013447b32415f15d5fb1a, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d4ce8cd216b013447b32415f15d5fb1a, type: 3}

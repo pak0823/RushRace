@@ -13,7 +13,7 @@ public class Camera : MonoBehaviour
 
     private Vector3 velocity = Vector3.zero; // 현재 속도
 
-    private void FixedUpdate() // FixedUpdate로 변경
+    private void LateUpdate()
     {
         if (target == null) return; // 대상이 없으면 아무것도 하지 않음
 
