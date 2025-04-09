@@ -10,6 +10,7 @@ public class UI_Stage : UIBase
     private void Start()
     {
         Shared.UI_Stage = this;
+        PlayBGM();
     }
     public void OnBtnYes() => ChangeScene(eSCENE.eSCENE_INGAME);
     public void OnBtnNo() => IsWindow(false);
@@ -23,5 +24,7 @@ public class UI_Stage : UIBase
             isWindow = true;
         else
             isWindow = false;
+
+        ClickSound();
     }
 }

@@ -61,9 +61,9 @@ public class StageIcon : MonoBehaviour
     {
         switch (objectName)
         {
-            case "ForestCapsule": StageData.CurrentStageNum = 0; return "1Stage";
-            case "DesertCapsule": StageData.CurrentStageNum = 1; return "2Stage";
-            case "DowntownCapsule": StageData.CurrentStageNum = 2; return "3Stage";
+            case "ForestCapsule": StageData.CurrentStageNum = 1; return "1Stage";
+            case "DesertCapsule": StageData.CurrentStageNum = 2; return "2Stage";
+            case "DowntownCapsule": StageData.CurrentStageNum = 3; return "3Stage";
             default: return "error";
         }
     }

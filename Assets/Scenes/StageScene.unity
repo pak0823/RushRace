@@ -393,7 +393,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 224fbc59cf58204459c15c07347f342b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Window: {fileID: 0}
+  optionWindow: {fileID: 0}
+  pauseWindow: {fileID: 0}
+  CLICKSOUND: {fileID: 11400000, guid: f3e6a2930155cd14e9b183eebcf937a6, type: 2}
+  BGM: {fileID: 11400000, guid: f01b4e95429f0324db4da0eb4542907f, type: 2}
   checkWindow: {fileID: 231357254}
   stageText: {fileID: 763180491}
   isWindow: 0

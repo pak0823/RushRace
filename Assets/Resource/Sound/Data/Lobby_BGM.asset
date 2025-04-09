@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6483e498d10d257448c47a9d36dccae8, type: 3}
+  m_Name: Lobby_BGM
+  m_EditorClassIdentifier: 
+  id: lobby_bgm
+  type: 0
+  clip: {fileID: 8300000, guid: c7f83e8691982084eacb549d772b172f, type: 3}
+  volume: 1

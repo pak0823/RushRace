@@ -9,6 +9,8 @@ public class UIBase : MonoBehaviour
     protected bool isPauseShow = false;
     public GameObject optionWindow;
     public GameObject pauseWindow;
+    public SoundData CLICKSOUND;
+    public SoundData BGM;
 
     public virtual void Update()
     {
@@ -27,6 +29,7 @@ public class UIBase : MonoBehaviour
 
         isOptionShow = !isOptionShow;
         optionWindow.SetActive(isOptionShow);
+        ClickSound();
     }
 
     public void TogglePauseWindow()
@@ -35,15 +38,21 @@ public class UIBase : MonoBehaviour
 
         isPauseShow = !isPauseShow;
         pauseWindow.SetActive(isPauseShow);
+        ClickSound();
     }
     public void ChangeScene(eSCENE scene)
     {
         Shared.SceneMgr.ChangeScene(scene);
+        Shared.SoundManager.StopPlaySound();
+        Shared.SoundManager.StopLoopSound();
     }
 
     public void OnBtnGoTitle() => ChangeScene(eSCENE.eSCENE_TITLE);
     public void OnBtnHome() => ChangeScene(eSCENE.eSCENE_LOBBY);
     public void OnBtnRepeat() => Shared.Car.ResetVehicle();
 
-    
+    public void ClickSound() => Shared.SoundManager.PlaySound(CLICKSOUND);
+    public void PlayBGM() => Shared.SoundManager.PlaySound(BGM);
+
+
 }

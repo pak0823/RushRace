@@ -1643,6 +1643,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   optionWindow: {fileID: 545502549}
   pauseWindow: {fileID: 0}
+  CLICKSOUND: {fileID: 11400000, guid: f3e6a2930155cd14e9b183eebcf937a6, type: 2}
+  BGM: {fileID: 11400000, guid: 7656590353ec86e4f8f0be8adcb04d75, type: 2}
 --- !u!114 &1745248714
 MonoBehaviour:
   m_ObjectHideFlags: 0
