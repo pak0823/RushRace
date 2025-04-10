@@ -15,4 +15,4 @@ MonoBehaviour:
   id: repair_bgm
   type: 0
   clip: {fileID: 8300000, guid: e5649496b3dd5bd4dbbd9304a7ea63fe, type: 3}
-  volume: 1
+  volume: 0.4

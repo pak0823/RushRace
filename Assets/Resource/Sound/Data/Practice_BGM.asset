@@ -15,4 +15,4 @@ MonoBehaviour:
   id: practice_bgm
   type: 0
   clip: {fileID: 8300000, guid: 34eaab72d78a6e8428c52b703e6dffed, type: 3}
-  volume: 1
+  volume: 0.4

@@ -15,4 +15,4 @@ MonoBehaviour:
   id: shop_bgm
   type: 0
   clip: {fileID: 8300000, guid: 973200d831cde4e4ab96a6f25d7c962e, type: 3}
-  volume: 1
+  volume: 0.4

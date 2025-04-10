@@ -15,4 +15,4 @@ MonoBehaviour:
   id: stageSelect_bgm
   type: 0
   clip: {fileID: 8300000, guid: e721697017e14574aa2981942631c1eb, type: 3}
-  volume: 1
+  volume: 0.4

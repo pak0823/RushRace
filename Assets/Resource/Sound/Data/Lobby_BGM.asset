@@ -15,4 +15,4 @@ MonoBehaviour:
   id: lobby_bgm
   type: 0
   clip: {fileID: 8300000, guid: c7f83e8691982084eacb549d772b172f, type: 3}
-  volume: 1
+  volume: 0.4

@@ -1,16 +1,26 @@
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Video;
 
 public class UI_Title : UIBase
 {
     public GameObject Credits;
     private bool isCredit = false;
     public SoundData STARTBTNSOUND;
+    public VideoPlayer backgroundVideo;
 
     private void Start()
     {
         Shared.SoundManager.PlaySound(BGM);
+        if (backgroundVideo != null)
+        {
+            backgroundVideo.renderMode = VideoRenderMode.CameraFarPlane;
+            backgroundVideo.isLooping = true;
+            backgroundVideo.Play();
+        }
+        else
+            Debug.Log("backgroundVideo is null");
     }
     public void OnBtnGoToLoading()
     {

@@ -3,29 +3,22 @@ using UnityEngine.UI;
 
 public class OptionWindow : MonoBehaviour
 {
+    [Header("볼륨 슬라이더")]
     public Slider bgmSlider;
     public Slider sfxSlider;
 
-    void Start()
-    {
-        // 초기값 로드
-        bgmSlider.value = PlayerPrefs.GetFloat("BGMVolume", 1f);
-        sfxSlider.value = PlayerPrefs.GetFloat("SFXVolume", 1f);
+    [Header("볼륨 컨트롤 스크립트")]
+    public AudioMixerVolumeControl volumeControl;
 
-        // 이벤트 등록
-        bgmSlider.onValueChanged.AddListener(OnBGMVolumeChanged);
-        sfxSlider.onValueChanged.AddListener(OnSFXVolumeChanged);
-    }
 
-    public void OnBGMVolumeChanged(float value)
+    private void Start()
     {
-        Shared.SoundManager.SetBGMVolume(value);
-        PlayerPrefs.SetFloat("BGMVolume", value);
-    }
+        // 슬라이더 초기화 및 AudioMixerVolumeControl에 전달
+        if (volumeControl != null)
+        {
+            volumeControl.InitializeSliders(bgmSlider, sfxSlider);
+        }
 
-    public void OnSFXVolumeChanged(float value)
-    {
-        Shared.SoundManager.SetSFXVolume(value);
-        PlayerPrefs.SetFloat("SFXVolume", value);
+        gameObject.SetActive(false);
     }
 }

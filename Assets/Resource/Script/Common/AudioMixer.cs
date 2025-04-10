@@ -1,51 +1,51 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Audio;
+using Unity.VisualScripting;
 
 public class AudioMixerVolumeControl : MonoBehaviour
 {
-    [Header("믹서 & 매개변수 이름")]
+    [Header("믹서 및 파라미터 이름")]
     public AudioMixer audioMixer;
     public string bgmParameter = "BGMVolume";
     public string sfxParameter = "SFXVolume";
 
-    [Header("슬라이더들")]
-    public Slider bgmSlider;
-    public Slider sfxSlider;
+    private Slider bgmSlider;
+    private Slider sfxSlider;
 
-    private void Start()
+    // OptionWindow에서 슬라이더를 연결할 때 호출됨
+    public void InitializeSliders(Slider bgm, Slider sfx)
     {
-        // 슬라이더 초기화
-        float bgm = PlayerPrefs.GetFloat("BGMVolume", 1f);
-        float sfx = PlayerPrefs.GetFloat("SFXVolume", 1f);
+        bgmSlider = bgm;
+        sfxSlider = sfx;
 
-        bgmSlider.value = bgm;
-        sfxSlider.value = sfx;
+        // PlayerPrefs에서 초기 볼륨 값 로드
+        float bgmValue = PlayerPrefs.GetFloat("BGMVolume", 0.5f);
+        float sfxValue = PlayerPrefs.GetFloat("SFXVolume", 0.5f);
 
-        ApplyVolume(bgmParameter, bgm);
-        ApplyVolume(sfxParameter, sfx);
+        bgmSlider.value = bgmValue;
+        sfxSlider.value = sfxValue;
 
-        // 이벤트 등록
-        bgmSlider.onValueChanged.AddListener(OnBGMVolumeChanged);
-        sfxSlider.onValueChanged.AddListener(OnSFXVolumeChanged);
+        ApplyVolume(bgmParameter, bgmValue);
+        ApplyVolume(sfxParameter, sfxValue);
+
+        // 슬라이더 이벤트 연결
+        bgmSlider.onValueChanged.AddListener((value) => {
+            ApplyVolume(bgmParameter, value);
+            PlayerPrefs.SetFloat("BGMVolume", value);
+        });
+
+        sfxSlider.onValueChanged.AddListener((value) => {
+            ApplyVolume(sfxParameter, value);
+            PlayerPrefs.SetFloat("SFXVolume", value);
+        });
     }
 
-    void OnBGMVolumeChanged(float value)
+    // AudioMixer 볼륨 적용 함수
+    private void ApplyVolume(string parameterName, float sliderValue)
     {
-        ApplyVolume(bgmParameter, value);
-        PlayerPrefs.SetFloat("BGMVolume", value);
-    }
-
-    void OnSFXVolumeChanged(float value)
-    {
-        ApplyVolume(sfxParameter, value);
-        PlayerPrefs.SetFloat("SFXVolume", value);
-    }
-
-    void ApplyVolume(string parameterName, float sliderValue)
-    {
-        // AudioMixer는 데시벨 단위 사용 → 로그 변환 필요
         float volumeInDecibel = Mathf.Log10(Mathf.Max(sliderValue, 0.0001f)) * 20f;
+        volumeInDecibel = Mathf.Clamp(volumeInDecibel, -80f, 0f); // 최대 음량 제한
         audioMixer.SetFloat(parameterName, volumeInDecibel);
     }
 }
