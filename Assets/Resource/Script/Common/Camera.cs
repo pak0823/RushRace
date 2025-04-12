@@ -9,7 +9,7 @@ public class Camera : MonoBehaviour
     public float height = 5.0f; // 대상보다 높은 위치
     public float smoothSpeed = 10.0f; // 부드러운 움직임을 위한 속도
     public float rotationDamping = 5.0f; // 회전 댐핑 추가
-    public Vector3 offset = new Vector3(0, 7, -10); // 오프셋 값
+    Vector3 offset = new Vector3(0, 7, -12); // 오프셋 값
 
     private Vector3 velocity = Vector3.zero; // 현재 속도
 

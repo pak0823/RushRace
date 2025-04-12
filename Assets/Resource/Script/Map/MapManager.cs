@@ -19,6 +19,7 @@ public class MapManager : MonoBehaviour
 
     void Start()
     {
+        Shared.MapManager = this;
         LoadStage(StageData.CurrentStageNum);
     }
 

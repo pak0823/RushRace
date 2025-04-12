@@ -19,5 +19,6 @@ public enum eSOUNDTYPE
     eSOUND_UI,
     eSOUND_CAR,
     eSOUND_SHOP,
-    eSOUND_REPAIR
+    eSOUND_REPAIR,
+    eSOUND_COIN
 }

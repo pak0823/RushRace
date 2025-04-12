@@ -5,9 +5,10 @@ using UnityEngine;
 
 public class Objects : MonoBehaviour
 {
-    private float rotationSpeed = 60f; // 회전 속도 (도/초)
+    private float rotationSpeed = 100f; // 회전 속도 (도/초)
     private float smoothSpeed = 5f;  // 회전 부드러움 정도
     private float currentYRotation = 0f;
+    public SoundData COINGET;
 
     private Quaternion targetRotation;
 
@@ -29,6 +30,8 @@ public class Objects : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            Shared.SoundManager.PlaySound(COINGET);
+            Shared.GameManager.AddMoney(100);
             DestroyObject();
         }
     }

@@ -39,6 +39,30 @@ public class UIBase : MonoBehaviour
         isPauseShow = !isPauseShow;
         pauseWindow.SetActive(isPauseShow);
         ClickSound();
+
+        if (isPauseShow)
+        {
+            Shared.SoundManager.StopLoopSound();
+            Time.timeScale = 0f;
+        }
+        else
+        {
+            Shared.SoundManager.ResumeLoopSound();
+            Time.timeScale = 1f;
+        }
+            
+
+    }
+
+    public void OnBtnRepeat()
+    {
+        if(isPauseShow)
+        {
+            Time.timeScale = 1f;
+            TogglePauseWindow();
+        }
+            
+        Shared.Car.ResetVehicle();
     }
     public void ChangeScene(eSCENE scene)
     {
@@ -49,7 +73,6 @@ public class UIBase : MonoBehaviour
 
     public void OnBtnGoTitle() => ChangeScene(eSCENE.eSCENE_TITLE);
     public void OnBtnHome() => ChangeScene(eSCENE.eSCENE_LOBBY);
-    public void OnBtnRepeat() => Shared.Car.ResetVehicle();
 
     public void ClickSound() => Shared.SoundManager.PlaySound(CLICKSOUND);
     public void PlayBGM() => Shared.SoundManager.PlaySound(BGM);

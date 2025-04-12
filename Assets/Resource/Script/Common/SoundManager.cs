@@ -1,5 +1,3 @@
-// SoundManager.cs - AudioMixer 방식으로 수정
-
 using UnityEngine;
 using UnityEngine.Audio;
 
@@ -9,6 +7,7 @@ public class SoundManager : MonoBehaviour
     public AudioSource sfxSource;
     public AudioSource sfxCarLoopSource;
 
+    SoundData currentLoopSound; //현재 루프 사운드 기억용(멤버 변수로)
     public AudioMixer audioMixer; // AudioMixer 참조
 
     private void Awake()
@@ -48,7 +47,7 @@ public class SoundManager : MonoBehaviour
         {
             case eSOUNDTYPE.eSOUND_BGM:
                 bgmSource.clip = data.clip;
-                // volume은 AudioMixer에서 제어
+                bgmSource.volume = data.volume * 0.5f;
                 bgmSource.loop = true;
                 bgmSource.Play();
                 break;
@@ -59,9 +58,27 @@ public class SoundManager : MonoBehaviour
                 if (sfxSource.clip != data.clip)
                     sfxSource.PlayOneShot(data.clip);
                 break;
+            case eSOUNDTYPE.eSOUND_COIN:
+                if (sfxSource.clip != data.clip)
+                    sfxSource.PlayOneShot(data.clip, data.volume * 3f);
+                break;
         }
     }
+    public void PlayLoopSound(SoundData data)
+    {
+        if (data == null || data.clip == null)
+            return;
 
+        currentLoopSound = data;
+
+        if (sfxCarLoopSource.clip != data.clip)
+        {
+            sfxCarLoopSource.clip = data.clip;
+            sfxCarLoopSource.volume = data.volume * 0.2f;
+            sfxCarLoopSource.loop = true;
+            sfxCarLoopSource.Play();
+        }
+    }
     public void StopPlaySound()
     {
         if (bgmSource.isPlaying)
@@ -69,23 +86,16 @@ public class SoundManager : MonoBehaviour
         bgmSource.clip = null;
     }
 
-    public void PlayLoopSound(SoundData data)
-    {
-        if (data == null || data.clip == null)
-            return;
-
-        if (sfxCarLoopSource.clip != data.clip)
-        {
-            sfxCarLoopSource.clip = data.clip;
-            sfxCarLoopSource.loop = true;
-            sfxCarLoopSource.Play();
-        }
-    }
-
     public void StopLoopSound()
     {
         if (sfxCarLoopSource.isPlaying)
             sfxCarLoopSource.Stop();
         sfxCarLoopSource.clip = null;
+    }
+
+    public void ResumeLoopSound()
+    {
+        if (currentLoopSound != null)
+            PlayLoopSound(currentLoopSound);
     }
 }
