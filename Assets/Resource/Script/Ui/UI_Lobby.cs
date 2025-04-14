@@ -1,6 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor;
+// UI_Lobby.cs - 로비 UI 및 버튼 이벤트 처리
+
 using UnityEngine;
 
 public class UI_Lobby : UIBase
@@ -9,9 +8,22 @@ public class UI_Lobby : UIBase
     {
         PlayBGM();
     }
-    public void OnBtnGoInGame() => ChangeScene(eSCENE.eSCENE_STAGE);
-    public void OnBtnGoShop() => ChangeScene(eSCENE.eSCENE_SHOP);
-    public void OnBtnGoRepair() => ChangeScene(eSCENE.eSCENE_REPAIR);
-    public void OnBtnGoPractice() => ChangeScene(eSCENE.eSCENE_TEST);
-}
 
+    public void OnBtnGoToPractice()
+    {
+        ClickSound();
+        ChangeScene(eSCENE.eSCENE_PRACTICE);
+    }
+
+    public void OnBtnGoToShop()
+    {
+        ClickSound();
+        ChangeScene(eSCENE.eSCENE_SHOP);
+    }
+
+    public void OnBtnGoToRepair()
+    {
+        ClickSound();
+        ChangeScene(eSCENE.eSCENE_REPAIR);
+    }
+}

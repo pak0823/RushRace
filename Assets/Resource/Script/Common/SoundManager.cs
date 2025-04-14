@@ -1,3 +1,5 @@
+// SoundManager.cs - 전반적인 BGM/SFX 재생 및 볼륨 관리
+
 using UnityEngine;
 using UnityEngine.Audio;
 
@@ -7,8 +9,7 @@ public class SoundManager : MonoBehaviour
     public AudioSource sfxSource;
     public AudioSource sfxCarLoopSource;
 
-    SoundData currentLoopSound; //현재 루프 사운드 기억용(멤버 변수로)
-    public AudioMixer audioMixer; // AudioMixer 참조
+    public AudioMixer audioMixer;
 
     private void Awake()
     {
@@ -23,7 +24,6 @@ public class SoundManager : MonoBehaviour
             return;
         }
 
-        // AudioSource는 Inspector에서 Output을 BGM/SFX 그룹으로 연결할 것
         bgmSource = transform.Find("BGMSource").GetComponent<AudioSource>();
         sfxSource = transform.Find("SFXSource").GetComponent<AudioSource>();
 
@@ -39,6 +39,18 @@ public class SoundManager : MonoBehaviour
         audioMixer.SetFloat(parameter, volumeInDecibel);
     }
 
+    public void SetBGMVolume(float value)
+    {
+        ApplyMixerVolume("BGMVolume", value);
+        PlayerPrefs.SetFloat("BGMVolume", value);
+    }
+
+    public void SetSFXVolume(float value)
+    {
+        ApplyMixerVolume("SFXVolume", value);
+        PlayerPrefs.SetFloat("SFXVolume", value);
+    }
+
     public void PlaySound(SoundData data)
     {
         if (data == null || data.clip == null) return;
@@ -51,25 +63,34 @@ public class SoundManager : MonoBehaviour
                 bgmSource.loop = true;
                 bgmSource.Play();
                 break;
+
             case eSOUNDTYPE.eSOUND_UI:
                 sfxSource.PlayOneShot(data.clip);
                 break;
+
             case eSOUNDTYPE.eSOUND_CAR:
                 if (sfxSource.clip != data.clip)
                     sfxSource.PlayOneShot(data.clip);
                 break;
+
             case eSOUNDTYPE.eSOUND_COIN:
                 if (sfxSource.clip != data.clip)
                     sfxSource.PlayOneShot(data.clip, data.volume * 3f);
                 break;
         }
     }
+
+    public void StopPlaySound()
+    {
+        if (bgmSource.isPlaying)
+            bgmSource.Stop();
+        bgmSource.clip = null;
+    }
+
     public void PlayLoopSound(SoundData data)
     {
         if (data == null || data.clip == null)
             return;
-
-        currentLoopSound = data;
 
         if (sfxCarLoopSource.clip != data.clip)
         {
@@ -79,11 +100,13 @@ public class SoundManager : MonoBehaviour
             sfxCarLoopSource.Play();
         }
     }
-    public void StopPlaySound()
+
+    public void ResumeLoopSound()
     {
-        if (bgmSource.isPlaying)
-            bgmSource.Stop();
-        bgmSource.clip = null;
+        if (sfxCarLoopSource != null && sfxCarLoopSource.clip != null && !sfxCarLoopSource.isPlaying)
+        {
+            sfxCarLoopSource.Play();
+        }
     }
 
     public void StopLoopSound()
@@ -91,11 +114,5 @@ public class SoundManager : MonoBehaviour
         if (sfxCarLoopSource.isPlaying)
             sfxCarLoopSource.Stop();
         sfxCarLoopSource.clip = null;
-    }
-
-    public void ResumeLoopSound()
-    {
-        if (currentLoopSound != null)
-            PlayLoopSound(currentLoopSound);
     }
 }

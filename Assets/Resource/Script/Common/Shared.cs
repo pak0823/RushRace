@@ -8,6 +8,10 @@ public static class Shared
     public static GameManager GameManager;
     public static SoundManager SoundManager;
     public static MapManager MapManager;
-    public static Car Car;
+    public static MissionManager MissionManager;
     public static UI_Stage UI_Stage;
+
+    public static Car Car;
+    public static Object Object;
+    public static StageData StageData;
 }

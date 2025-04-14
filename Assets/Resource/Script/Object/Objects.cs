@@ -1,19 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
+// Objects.cs - 코인 등의 회전 아이템과 충돌 처리를 담당
+
 using UnityEngine;
 
 public class Objects : MonoBehaviour
 {
-    private float rotationSpeed = 100f; // 회전 속도 (도/초)
-    private float smoothSpeed = 5f;  // 회전 부드러움 정도
+    private float rotationSpeed = 100f;
+    private float smoothSpeed = 5f;
     private float currentYRotation = 0f;
-    public SoundData COINGET;
-
     private Quaternion targetRotation;
+
+    public SoundData COINGET;
 
     void Start()
     {
+        Shared.Object = this;
         targetRotation = transform.rotation;
     }
 
@@ -21,8 +21,6 @@ public class Objects : MonoBehaviour
     {
         currentYRotation += rotationSpeed * Time.deltaTime;
         targetRotation = Quaternion.Euler(0, currentYRotation, 0);
-
-        // 현재 회전값을 목표로 부드럽게 회전
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, smoothSpeed * Time.deltaTime);
     }
 
@@ -31,13 +29,8 @@ public class Objects : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             Shared.SoundManager.PlaySound(COINGET);
-            Shared.GameManager.AddMoney(100);
-            DestroyObject();
+            Shared.MissionManager.OnCoinCollected();
+            Destroy(gameObject);
         }
-    }
-
-    void DestroyObject()
-    {
-        Destroy(this.gameObject);
     }
 }

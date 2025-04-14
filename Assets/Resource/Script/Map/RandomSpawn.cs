@@ -9,8 +9,8 @@ public class RandomSpawn : MonoBehaviour
     public GameObject[] noncolliderObj;
 
     [Header("Spawn 갯수 설정")]
-    public int colliderSpawnCount = 100;
-    public int noncolliderSpawnCount = 200;
+    public int colliderSpawnCount;
+    public int noncolliderSpawnCount;
 
     [Header("경로 감지")]
     public LayerMask pathLayer; // 길에만 지정한 Layer
@@ -27,12 +27,6 @@ public class RandomSpawn : MonoBehaviour
         }
     }
 
-    //void Start()
-    //{
-    //    SpawnGroup(colliderObj, colliderSpawnCount);
-    //    SpawnGroup(noncolliderObj, noncolliderSpawnCount);
-    //}
-
     public void GenerateAll()
     {
 #if UNITY_EDITOR
@@ -48,12 +42,16 @@ public class RandomSpawn : MonoBehaviour
         int attempts = 0;
         int maxAttempts = count * 5;
         Bounds bounds = colliderFloor.bounds;
+        float y = bounds.center.y;
+        
 
         // "Object" 자식 찾기 or 자동 생성
-        Transform targetParent = transform.Find("Object");
+        //Transform targetParent = transform.Find("Object");
+        Transform targetParent = transform.Find("Item");
         if (targetParent == null)
         {
-            GameObject obj = new GameObject("Object");
+            //GameObject obj = new GameObject("Object");
+            GameObject obj = new GameObject("Item");
             obj.transform.SetParent(this.transform);
             targetParent = obj.transform;
         }
@@ -64,13 +62,18 @@ public class RandomSpawn : MonoBehaviour
 
             float x = Random.Range(bounds.min.x, bounds.max.x);
             float z = Random.Range(bounds.min.z, bounds.max.z);
-            Vector3 checkPos = new Vector3(x, 1f, z);
+            Vector3 checkPos = new Vector3(x, y, z);
 
             float checkRadius = 1f;
             bool overlapsPath = Physics.CheckSphere(checkPos, checkRadius, pathLayer);
 
-            if (overlapsPath)
+            //if (overlapsPath)
+            //    continue;
+            Debug.Log("CheckSphere 감지 결과: " + Physics.CheckSphere(checkPos, 1f, pathLayer));
+            if (!overlapsPath)
+            {
                 continue;
+            }
 
             int index = Random.Range(0, prefabArray.Length);
             Vector3 spawnPos = new Vector3(x, bounds.center.y, z);
@@ -79,6 +82,7 @@ public class RandomSpawn : MonoBehaviour
             Instantiate(prefabArray[index], spawnPos, rotation, targetParent);
             created++;
         }
+        Debug.Log("생성된 총 갯수: " +created);
 #endif
     }
 

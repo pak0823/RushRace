@@ -1,25 +1,27 @@
-using System;
+// GameManager.cs - 게임 내 자금 및 상태 관리
+
 using UnityEngine;
+using System;
 
 public class GameManager : MonoBehaviour
 {
     private int money = 0;
     public int Money => money;
-    public static event Action<int> OnMoneyChanged; // 이벤트 추가
+    public static event Action<int> OnMoneyChanged;
 
     private const string MONEY_KEY = "Money";
 
-    void Awake()
+    private void Awake()
     {
         if (Shared.GameManager == null)
         {
             Shared.GameManager = this;
             DontDestroyOnLoad(gameObject);
+            LoadMoney();
         }
         else
         {
             Destroy(gameObject);
-            return;
         }
     }
 
@@ -27,7 +29,7 @@ public class GameManager : MonoBehaviour
     {
         money += amount;
         SaveMoney();
-        OnMoneyChanged?.Invoke(money); // 이벤트 발생
+        OnMoneyChanged?.Invoke(money);
         Debug.Log($"돈 획득: +{amount} → 총합 {money}");
     }
 
@@ -35,7 +37,7 @@ public class GameManager : MonoBehaviour
     {
         money = Mathf.Max(0, money - amount);
         SaveMoney();
-        OnMoneyChanged?.Invoke(money); // 이벤트 발생
+        OnMoneyChanged?.Invoke(money);
         Debug.Log($"돈 사용: -{amount} → 남은 금액 {money}");
     }
 
@@ -43,7 +45,7 @@ public class GameManager : MonoBehaviour
     {
         money = 0;
         SaveMoney();
-        OnMoneyChanged?.Invoke(money); // 이벤트 발생
+        OnMoneyChanged?.Invoke(money);
     }
 
     private void SaveMoney()

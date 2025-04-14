@@ -1,6 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
+// Car.cs - 자동차 주행 및 드리프트, 사운드 이펙트 제어
+
 using UnityEngine;
 
 public partial class Car : MonoBehaviour
@@ -27,40 +26,17 @@ public partial class Car : MonoBehaviour
     private Quaternion initialRotation;
     private Vector3 initialPosition;
 
-    bool isBraking = false;
-    bool wasDrifting = false;
+    public bool isBraking;
     public float currentSpeed { get; private set; }
 
     private Rigidbody rigidBody;
     private const float MinSpeedToRotateWheels = 0.1f;
 
-    // 이펙트 시스템
-    public bool useEffects = false;
-    public ParticleSystem RLWParticleSystem;
-    public ParticleSystem RRWParticleSystem;
-    public TrailRenderer RLWTireSkid;
-    public TrailRenderer RRWTireSkid;
-
-    // 사운드 관련
-    private Dictionary<string, SoundData> soundDict;
     public SoundData ENGINE_LOW;
     public SoundData ENGINE_HIGH;
     public SoundData DRIFT;
 
-    enum EngineSoundState { None, Low, High }
-    EngineSoundState engineState = EngineSoundState.None;
-
-    private void Awake()
-    {
-        soundDict = new Dictionary<string, SoundData>
-        {
-            { "DRIFT", DRIFT },
-            { "ENGINE_LOW", ENGINE_LOW },
-            { "ENGINE_HIGH", ENGINE_HIGH }
-        };
-    }
-
-    void Start()
+    private void Start()
     {
         Shared.Car = this;
         rigidBody = GetComponent<Rigidbody>();
@@ -74,7 +50,7 @@ public partial class Car : MonoBehaviour
         initialPosition = transform.position;
     }
 
-    void FixedUpdate()
+    private void FixedUpdate()
     {
         float verticalInput = Input.GetAxis("Vertical");
         float horizontalInput = Input.GetAxis("Horizontal");
@@ -121,52 +97,18 @@ public partial class Car : MonoBehaviour
             if (hit.collider.sharedMaterial != null && hit.collider.sharedMaterial.name.Contains("Quad"))
             {
                 adjustedMotorTorque *= 0.3f;
+
                 float slowdown = 20f * Time.fixedDeltaTime;
                 currentSpeed -= slowdown;
                 currentSpeed = Mathf.Max(currentSpeed, 0f);
+
                 Vector3 velocity = rigidBody.velocity;
                 rigidBody.velocity = velocity.normalized * (currentSpeed / 3.6f);
             }
         }
-
-        if (currentSpeed > 5 && currentSpeed < 110)
-        {
-            if (engineState != EngineSoundState.Low)
-            {
-                Shared.SoundManager.PlayLoopSound(ENGINE_LOW);
-                engineState = EngineSoundState.Low;
-            }
-        }
-        else if (currentSpeed >= 110)
-        {
-            if (engineState != EngineSoundState.High)
-            {
-                Shared.SoundManager.PlayLoopSound(ENGINE_HIGH);
-                engineState = EngineSoundState.High;
-            }
-        }
-        else
-        {
-            if (engineState != EngineSoundState.None)
-            {
-                Shared.SoundManager.StopLoopSound();
-                engineState = EngineSoundState.None;
-            }
-        }
-
-        if (isDrifting && !wasDrifting)
-        {
-            PlaySFXSound("DRIFT");
-        }
-
-        // 스키드 이펙트 활성화 여부 체크
-        bool shouldEmitSkid = isDrifting && ShouldEmitSkid();
-        DriftEffect(shouldEmitSkid);
-
-        wasDrifting = isDrifting;
     }
 
-    void Update()
+    private void Update()
     {
         UpdateWheelPose(frontLeftWheel);
         UpdateWheelPose(frontRightWheel);
@@ -176,18 +118,9 @@ public partial class Car : MonoBehaviour
         isBraking = Input.GetKey(KeyCode.Space);
     }
 
-    void SetBrakeTorque(float torque)
+    private void UpdateWheelPose(Wheel wheel)
     {
-        frontLeftWheel.wheelCollider.brakeTorque = torque;
-        frontRightWheel.wheelCollider.brakeTorque = torque;
-        rearLeftWheel.wheelCollider.brakeTorque = torque;
-        rearRightWheel.wheelCollider.brakeTorque = torque;
-    }
-
-    public void UpdateWheelPose(Wheel wheel)
-    {
-        if (wheel.wheelCollider == null || wheel.wheelTransform == null)
-            return;
+        if (wheel.wheelCollider == null || wheel.wheelTransform == null) return;
 
         Vector3 pos;
         Quaternion rot;
@@ -197,7 +130,7 @@ public partial class Car : MonoBehaviour
         wheel.wheelTransform.rotation = rot;
     }
 
-    void ApplySteering(float steerAngle, float horizontalInput, bool isDrifting)
+    private void ApplySteering(float steerAngle, float horizontalInput, bool isDrifting)
     {
         frontLeftWheel.wheelCollider.steerAngle = steerAngle;
         frontRightWheel.wheelCollider.steerAngle = steerAngle;
@@ -207,7 +140,7 @@ public partial class Car : MonoBehaviour
         rearRightWheel.wheelCollider.steerAngle = horizontalInput * maxSteerAngle * rearSteerRatio;
     }
 
-    void ApplyMotorTorque(float torque)
+    private void ApplyMotorTorque(float torque)
     {
         frontLeftWheel.wheelCollider.motorTorque = torque;
         frontRightWheel.wheelCollider.motorTorque = torque;
@@ -215,13 +148,15 @@ public partial class Car : MonoBehaviour
         rearRightWheel.wheelCollider.motorTorque = torque;
     }
 
-    void AdjustRearFrictionAndBraking(bool isDrifting)
+    private void AdjustRearFrictionAndBraking(bool isDrifting)
     {
         WheelFrictionCurve frictionL = rearLeftWheel.wheelCollider.sidewaysFriction;
         WheelFrictionCurve frictionR;
 
         if (isDrifting)
         {
+            Shared.SoundManager.PlaySound(DRIFT);
+
             frictionL.stiffness = 2.0f;
             frictionL.extremumSlip = 0.3f;
             frictionL.asymptoteSlip = 0.5f;
@@ -244,7 +179,7 @@ public partial class Car : MonoBehaviour
         rearRightWheel.wheelCollider.sidewaysFriction = frictionR;
     }
 
-    void ApplyBrakeForce(float frontTorque, float rearTorque)
+    private void ApplyBrakeForce(float frontTorque, float rearTorque)
     {
         frontLeftWheel.wheelCollider.brakeTorque = frontTorque;
         frontRightWheel.wheelCollider.brakeTorque = frontTorque;
@@ -269,7 +204,7 @@ public partial class Car : MonoBehaviour
         StartCoroutine(ResetFullPhysics());
     }
 
-    private IEnumerator ResetFullPhysics()
+    private System.Collections.IEnumerator ResetFullPhysics()
     {
         yield return new WaitForSeconds(0.1f);
 
@@ -280,50 +215,19 @@ public partial class Car : MonoBehaviour
         currentSpeed = 0;
     }
 
+    private void SetBrakeTorque(float torque)
+    {
+        frontLeftWheel.wheelCollider.brakeTorque = torque;
+        frontRightWheel.wheelCollider.brakeTorque = torque;
+        rearLeftWheel.wheelCollider.brakeTorque = torque;
+        rearRightWheel.wheelCollider.brakeTorque = torque;
+    }
+
     private void SetWheelColliderEnabled(bool enabled)
     {
         frontLeftWheel.wheelCollider.enabled = enabled;
         frontRightWheel.wheelCollider.enabled = enabled;
         rearLeftWheel.wheelCollider.enabled = enabled;
         rearRightWheel.wheelCollider.enabled = enabled;
-    }
-
-    void PlaySFXSound(string _key)
-    {
-        if (soundDict.TryGetValue(_key, out SoundData data))
-        {
-            Shared.SoundManager.PlaySound(data);
-        }
-    }
-
-    // 드리프트 시 스키드 이펙트와 파티클 실행 여부
-    void DriftEffect(bool _emit)
-    {
-        if (useEffects)
-        {
-            if (_emit)
-            {
-                RLWParticleSystem?.Play();
-                RRWParticleSystem?.Play();
-            }
-            else
-            {
-                RLWParticleSystem?.Stop();
-                RRWParticleSystem?.Stop();
-            }
-            RLWTireSkid.emitting = _emit;
-            RRWTireSkid.emitting = _emit;
-        }
-    }
-
-    // 실제 슬립 발생 여부 확인
-    bool ShouldEmitSkid()
-    {
-        WheelHit hit;
-        if (rearLeftWheel.wheelCollider.GetGroundHit(out hit))
-        {
-            return Mathf.Abs(hit.sidewaysSlip) > 0.25f || Mathf.Abs(hit.forwardSlip) > 0.25f;
-        }
-        return false;
     }
 }

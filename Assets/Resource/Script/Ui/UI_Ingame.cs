@@ -1,22 +1,23 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine.UI;
+// UI_Ingame.cs - 인게임 UI 및 일시정지/옵션창 제어
+
 using UnityEngine;
-using TMPro;
+using UnityEngine.UI;
 
 public class UI_Ingame : UIBase
 {
     public Text speedText;
-    int stageNum;
+    public Text missionText;
+    public Text timerText;
+
     public SoundData STAGE_1_BGM;
     public SoundData STAGE_2_BGM;
     public SoundData STAGE_3_BGM;
 
     private void Start()
     {
-        stageNum = StageData.CurrentStageNum;
+        int stageNum = StageData.CurrentStageNum;
 
-        switch(stageNum)
+        switch (stageNum)
         {
             case 1:
                 Shared.SoundManager.PlaySound(STAGE_1_BGM);
@@ -32,14 +33,15 @@ public class UI_Ingame : UIBase
 
     public override void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            if (!isOptionShow)
-                TogglePauseWindow();
-            else
-                ToggleOptionWindow();
-        }
+        base.Update();
 
-        speedText.text = string.Format("{0:0}Km/s", Shared.Car.currentSpeed);
+        if (speedText != null)
+            speedText.text = string.Format("{0:0} Km/h", Shared.Car.currentSpeed);
+
+        if (missionText != null && Shared.MissionManager != null)
+            missionText.text = Shared.MissionManager.GetMissionProgress();
+
+        if (timerText != null && Shared.MissionManager != null)
+            timerText.text = string.Format("{0:0.0}s", Shared.MissionManager.GetRemainingTime());
     }
 }

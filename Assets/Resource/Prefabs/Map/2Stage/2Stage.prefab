@@ -86,6 +86,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4586535371291344110, guid: 75b57d00249559d4782054b5666e1fdd, type: 3}
+      propertyPath: colliderSpawnCount
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 4586535371291344110, guid: 75b57d00249559d4782054b5666e1fdd, type: 3}
+      propertyPath: colliderObj.Array.data[0]
+      value: 
+      objectReference: {fileID: 4009716325937776529, guid: bddde96586ad17d4490632b9a89409b2, type: 3}
+    - target: {fileID: 4586535371291344110, guid: 75b57d00249559d4782054b5666e1fdd, type: 3}
+      propertyPath: noncolliderObj.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6631895730629323367, guid: 75b57d00249559d4782054b5666e1fdd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.5506
+      objectReference: {fileID: 0}
+    - target: {fileID: 6631895730629323367, guid: 75b57d00249559d4782054b5666e1fdd, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -104,6 +124,34 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8265949259699288406}
     m_Modifications:
+    - target: {fileID: 4125438579994050225, guid: 8b133748055996b49b403197a61746e2, type: 3}
+      propertyPath: colliderSpawnCount
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4125438579994050225, guid: 8b133748055996b49b403197a61746e2, type: 3}
+      propertyPath: noncolliderSpawnCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4125438579994050225, guid: 8b133748055996b49b403197a61746e2, type: 3}
+      propertyPath: colliderObj.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4125438579994050225, guid: 8b133748055996b49b403197a61746e2, type: 3}
+      propertyPath: colliderObj.Array.data[0]
+      value: 
+      objectReference: {fileID: 4009716325937776529, guid: bddde96586ad17d4490632b9a89409b2, type: 3}
+    - target: {fileID: 4125438579994050225, guid: 8b133748055996b49b403197a61746e2, type: 3}
+      propertyPath: noncolliderObj.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4174460819513175705, guid: 8b133748055996b49b403197a61746e2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.5506
+      objectReference: {fileID: 0}
+    - target: {fileID: 4174460819513175705, guid: 8b133748055996b49b403197a61746e2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 7324776895340842103, guid: 8b133748055996b49b403197a61746e2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -166,6 +214,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8265949259699288406}
     m_Modifications:
+    - target: {fileID: 1978792115830240705, guid: 1b0e1f4bcc8e49f49959893ccf9d11ce, type: 3}
+      propertyPath: colliderSpawnCount
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 1978792115830240705, guid: 1b0e1f4bcc8e49f49959893ccf9d11ce, type: 3}
+      propertyPath: noncolliderSpawnCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1978792115830240705, guid: 1b0e1f4bcc8e49f49959893ccf9d11ce, type: 3}
+      propertyPath: colliderObj.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1978792115830240705, guid: 1b0e1f4bcc8e49f49959893ccf9d11ce, type: 3}
+      propertyPath: colliderObj.Array.data[0]
+      value: 
+      objectReference: {fileID: 4009716325937776529, guid: bddde96586ad17d4490632b9a89409b2, type: 3}
+    - target: {fileID: 1978792115830240705, guid: 1b0e1f4bcc8e49f49959893ccf9d11ce, type: 3}
+      propertyPath: noncolliderObj.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3293754291780542254, guid: 1b0e1f4bcc8e49f49959893ccf9d11ce, type: 3}
       propertyPath: m_Name
       value: DesertTile_01
@@ -211,7 +279,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 4878289850588326431, guid: 1b0e1f4bcc8e49f49959893ccf9d11ce, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1b0e1f4bcc8e49f49959893ccf9d11ce, type: 3}
