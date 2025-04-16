@@ -211,7 +211,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: DowntownTile_01
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1768568351966826957, guid: 88a734a05ef46cb49ac5d10c52b8f9f0, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

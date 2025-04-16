@@ -30,7 +30,7 @@ public class Objects : MonoBehaviour
         {
             Shared.SoundManager.PlaySound(COINGET);
             Shared.MissionManager.OnCoinCollected();
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
 }

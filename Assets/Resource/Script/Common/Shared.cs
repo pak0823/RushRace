@@ -10,6 +10,7 @@ public static class Shared
     public static MapManager MapManager;
     public static MissionManager MissionManager;
     public static UI_Stage UI_Stage;
+    public static CoinManager CoinManager;
 
     public static Car Car;
     public static Object Object;

@@ -8,8 +8,9 @@ public class UI_Title : UIBase
     private bool isCredit = false;
     public SoundData STARTBTNSOUND;
 
-    private void Start()
+    public override void Start()
     {
+        OPTIONSHOW.transform.parent.gameObject.SetActive(false);
         PlayBGM();
     }
     public void OnBtnOptionShow() => ToggleOptionWindow();

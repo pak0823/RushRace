@@ -13,19 +13,22 @@ public class UI_Ingame : UIBase
     public SoundData STAGE_2_BGM;
     public SoundData STAGE_3_BGM;
 
-    private void Start()
+    public override void Start()
     {
+        OPTIONSHOW.transform.parent.gameObject.SetActive(false);
+        OPTIONSHOW.SetActive(false);
+
         int stageNum = StageData.CurrentStageNum;
 
         switch (stageNum)
         {
-            case 1:
+            case 0:
                 Shared.SoundManager.PlaySound(STAGE_1_BGM);
                 break;
-            case 2:
+            case 1:
                 Shared.SoundManager.PlaySound(STAGE_2_BGM);
                 break;
-            case 3:
+            case 2:
                 Shared.SoundManager.PlaySound(STAGE_3_BGM);
                 break;
         }
@@ -33,7 +36,13 @@ public class UI_Ingame : UIBase
 
     public override void Update()
     {
-        base.Update();
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (isOptionShow)
+                ToggleOptionWindow();
+            else
+                TogglePauseWindow();
+        }
 
         if (speedText != null)
             speedText.text = string.Format("{0:0} Km/h", Shared.Car.currentSpeed);

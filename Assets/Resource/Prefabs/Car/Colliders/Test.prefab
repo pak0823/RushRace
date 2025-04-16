@@ -128,14 +128,14 @@ MonoBehaviour:
   maxSteerAngle: 30
   decelerationRate: 50
   maxSpeed: 200
-  useEffects: 1
-  RLWParticleSystem: {fileID: 3684005940350073427}
-  RRWParticleSystem: {fileID: 4720390627382153821}
-  RLWTireSkid: {fileID: 9002087593759655435}
-  RRWTireSkid: {fileID: 1800251708094402436}
+  isBraking: 0
   ENGINE_LOW: {fileID: 11400000, guid: 238630d9b3c4a104bb8c7d475305b11e, type: 2}
   ENGINE_HIGH: {fileID: 11400000, guid: 230d27b56843b3e4f8da73baa1e14011, type: 2}
   DRIFT: {fileID: 11400000, guid: 66cfd4cd72c8ee8429572bba7ee7daed, type: 2}
+  driftSmoke_RL: {fileID: 3684005940350073427}
+  driftSmoke_RR: {fileID: 4720390627382153821}
+  skidEffect_RL: {fileID: 9002087593759655435}
+  skidEffect_RR: {fileID: 1800251708094402436}
 --- !u!1 &3263149667454813771
 GameObject:
   m_ObjectHideFlags: 0
@@ -217,7 +217,6 @@ GameObject:
   - component: {fileID: 369683539489249274}
   - component: {fileID: 2108959753631582087}
   - component: {fileID: 7955839671852070711}
-  - component: {fileID: 286538718076198021}
   - component: {fileID: 2795496462274597454}
   m_Layer: 0
   m_Name: Body
@@ -292,27 +291,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &286538718076198021
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7588791278407695539}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Size: {x: 1.4637733, y: 0.5897393, z: 4.515404}
-  m_Center: {x: -0.00088474154, y: 0.7573327, z: -0.002806902}
 --- !u!64 &2795496462274597454
 MeshCollider:
   m_ObjectHideFlags: 0

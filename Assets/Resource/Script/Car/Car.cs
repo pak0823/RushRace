@@ -26,15 +26,24 @@ public partial class Car : MonoBehaviour
     private Quaternion initialRotation;
     private Vector3 initialPosition;
 
-    public bool isBraking;
+    private float _horizontalInput;
+    private float _verticalInput;
+    private bool _isBraking;
+    private bool _isDrifting;
     public float currentSpeed { get; private set; }
 
     private Rigidbody rigidBody;
-    private const float MinSpeedToRotateWheels = 0.1f;
 
     public SoundData ENGINE_LOW;
     public SoundData ENGINE_HIGH;
     public SoundData DRIFT;
+
+    private bool isDriftSoundPlaying = false; // 드리프트 사운드 중복 방지 플래그
+
+    public ParticleSystem driftSmoke_RL;    //연기 효과 파티클 할당
+    public ParticleSystem driftSmoke_RR;
+    public TrailRenderer skidEffect_RL;  // 스키드 효과 파티클 할당
+    public TrailRenderer skidEffect_RR;
 
     private void Start()
     {
@@ -50,27 +59,62 @@ public partial class Car : MonoBehaviour
         initialPosition = transform.position;
     }
 
+    private void Update()
+    {
+        UpdateWheelPose(frontLeftWheel);
+        UpdateWheelPose(frontRightWheel);
+        UpdateWheelPose(rearLeftWheel);
+        UpdateWheelPose(rearRightWheel);
+
+        _verticalInput = Input.GetAxis("Vertical");
+        _horizontalInput = Input.GetAxis("Horizontal");
+        _isBraking = Input.GetKey(KeyCode.Space);
+
+        if (skidEffect_RL != null && skidEffect_RR != null)
+        {
+            skidEffect_RL.emitting = _isBraking;  // 브레이크 입력 시에만 스키드 효과 적용
+            skidEffect_RR.emitting = _isBraking;
+        }
+        if (driftSmoke_RL != null && driftSmoke_RR != null)
+        {
+            // _isDrifting를 사용하여 드리프트 조건(브레이크와 좌우 입력의 조합)일 때만 연기 효과 발생
+            if (_isDrifting)
+            {
+                if (!driftSmoke_RL.isPlaying) driftSmoke_RL.Play();
+                if (!driftSmoke_RR.isPlaying) driftSmoke_RR.Play();
+            }
+            else
+            {
+                if (driftSmoke_RL.isPlaying) driftSmoke_RL.Stop();
+                if (driftSmoke_RR.isPlaying) driftSmoke_RR.Stop();
+            }
+        }
+
+        if (Input.GetAxis("Vertical") != 0)
+        {
+            Shared.SoundManager.PlayLoopSound(ENGINE_LOW);
+        }
+        else if (currentSpeed < 1)
+            Shared.SoundManager.StopLoopSound();
+    }
+
     private void FixedUpdate()
     {
-        float verticalInput = Input.GetAxis("Vertical");
-        float horizontalInput = Input.GetAxis("Horizontal");
+        bool localDrift = _isBraking && Mathf.Abs(_horizontalInput) > 0.1f;
+        _isDrifting = localDrift;
+        float adjustedMotorTorque = _verticalInput * motorTorque * (_isDrifting ? 0.8f : 1f);
 
-        bool isDrifting = isBraking && Mathf.Abs(horizontalInput) > 0.1f;
+        AdjustRearFrictionAndBraking(localDrift);
 
-        float engineTorqueMultiplier = isDrifting ? 0.8f : 1f;
-        float adjustedMotorTorque = verticalInput * motorTorque * engineTorqueMultiplier;
-
-        AdjustRearFrictionAndBraking(isDrifting);
-
-        float baseSteerSensitivity = isDrifting ? 1.0f : 0.2f;
+        float baseSteerSensitivity = localDrift ? 1.0f : 0.2f;
         float steerSensitivity = Mathf.Lerp(baseSteerSensitivity, 1.0f, Mathf.Clamp01(currentSpeed / maxSpeed));
-        float driftSteerFactor = isDrifting ? 1.25f : 1.0f;
+        float driftSteerFactor = localDrift ? 1.25f : 1.0f;
 
-        float targetSteer = horizontalInput * maxSteerAngle * steerSensitivity * driftSteerFactor;
-        float steerLerpSpeed = isDrifting ? 5f : 2.5f;
+        float targetSteer = _horizontalInput * maxSteerAngle * steerSensitivity * driftSteerFactor;
+        float steerLerpSpeed = localDrift ? 5f : 2.5f;
         float steerAngle = Mathf.Lerp(frontLeftWheel.wheelCollider.steerAngle, targetSteer, Time.fixedDeltaTime * steerLerpSpeed);
 
-        if (isDrifting && Mathf.Abs(rigidBody.angularVelocity.y) > 1.0f)
+        if (localDrift && Mathf.Abs(rigidBody.angularVelocity.y) > 1.0f)
         {
             Vector3 angular = rigidBody.angularVelocity;
             angular.y *= 0.9f;
@@ -78,13 +122,13 @@ public partial class Car : MonoBehaviour
             rigidBody.angularVelocity = angular;
         }
 
-        ApplySteering(steerAngle, horizontalInput, isDrifting);
+        ApplySteering(steerAngle, _horizontalInput, localDrift);
         ApplyMotorTorque(adjustedMotorTorque);
 
         currentSpeed = rigidBody.velocity.magnitude * 3.6f;
         currentSpeed = Mathf.Min(currentSpeed, maxSpeed);
 
-        if (verticalInput == 0 && !isBraking)
+        if (_verticalInput == 0 && !_isBraking)
         {
             float decelerationAmount = decelerationRate * Time.fixedDeltaTime * (currentSpeed / maxSpeed);
             currentSpeed -= decelerationAmount;
@@ -108,15 +152,7 @@ public partial class Car : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        UpdateWheelPose(frontLeftWheel);
-        UpdateWheelPose(frontRightWheel);
-        UpdateWheelPose(rearLeftWheel);
-        UpdateWheelPose(rearRightWheel);
-
-        isBraking = Input.GetKey(KeyCode.Space);
-    }
+    
 
     private void UpdateWheelPose(Wheel wheel)
     {
@@ -155,7 +191,11 @@ public partial class Car : MonoBehaviour
 
         if (isDrifting)
         {
-            Shared.SoundManager.PlaySound(DRIFT);
+            if (!isDriftSoundPlaying)
+            {
+                Shared.SoundManager.PlaySound(DRIFT);
+                isDriftSoundPlaying = true;
+            }
 
             frictionL.stiffness = 2.0f;
             frictionL.extremumSlip = 0.3f;
@@ -166,12 +206,14 @@ public partial class Car : MonoBehaviour
         }
         else
         {
+            isDriftSoundPlaying = false;
+
             frictionL.stiffness = 8.0f;
             frictionL.extremumSlip = 0.03f;
             frictionL.asymptoteSlip = 0.1f;
             frictionL.asymptoteValue = 1.0f;
 
-            ApplyBrakeForce(isBraking ? brakeTorque : 0f, isBraking ? brakeTorque : 0f);
+            ApplyBrakeForce(_isBraking ? brakeTorque : 0f, _isBraking ? brakeTorque : 0f);
         }
 
         frictionR = frictionL;

@@ -395,16 +395,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 224fbc59cf58204459c15c07347f342b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  optionWindow: {fileID: 0}
-  pauseWindow: {fileID: 0}
   CLICKSOUND: {fileID: 11400000, guid: f3e6a2930155cd14e9b183eebcf937a6, type: 2}
   BGM: {fileID: 11400000, guid: f01b4e95429f0324db4da0eb4542907f, type: 2}
-  checkWindow: {fileID: 231357254}
+  OPTIONSHOW: {fileID: 231357254}
+  PAUSESHOW: {fileID: 0}
   stageText: {fileID: 763180491}
-  isWindow: 0
-  rockStage:
-  - {fileID: 1860718263}
-  - {fileID: 342435291}
+  stage2Rock: {fileID: 1860718263}
+  stage3Rock: {fileID: 342435291}
 --- !u!1 &231357254
 GameObject:
   m_ObjectHideFlags: 0
@@ -422,7 +419,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &231357255
 RectTransform:
   m_ObjectHideFlags: 0
@@ -497,7 +494,7 @@ GameObject:
   - component: {fileID: 283573507}
   - component: {fileID: 283573511}
   m_Layer: 0
-  m_Name: DowntownCapsule
+  m_Name: 3Stage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -515,6 +512,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 867f01d3f76fb0646920b95589f6be8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stageNum: 2
+  rotationSpeed: 30
 --- !u!33 &283573508
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -776,7 +775,7 @@ GameObject:
   - component: {fileID: 413634348}
   - component: {fileID: 413634352}
   m_Layer: 0
-  m_Name: DesertCapsule
+  m_Name: 2Stage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -794,6 +793,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 867f01d3f76fb0646920b95589f6be8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stageNum: 1
+  rotationSpeed: 30
 --- !u!33 &413634349
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -1452,7 +1453,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -2176,7 +2177,7 @@ GameObject:
   - component: {fileID: 2091460637}
   - component: {fileID: 2091460640}
   m_Layer: 0
-  m_Name: ForestCapsule
+  m_Name: 1Stage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2210,6 +2211,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 867f01d3f76fb0646920b95589f6be8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stageNum: 0
+  rotationSpeed: 30
 --- !u!33 &2091460638
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -2390,6 +2393,6 @@ SceneRoots:
   - {fileID: 1890609570}
   - {fileID: 1627857264}
   - {fileID: 1517759534}
-  - {fileID: 1796525103}
   - {fileID: 166721375}
+  - {fileID: 1796525103}
   - {fileID: 2080132638}

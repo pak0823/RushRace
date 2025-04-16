@@ -138,7 +138,7 @@ GameObject:
   - component: {fileID: 546447545249389519}
   m_Layer: 0
   m_Name: coin(Clone)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -428,7 +428,7 @@ GameObject:
   - component: {fileID: 8910907242262987513}
   m_Layer: 0
   m_Name: coin(Clone)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -590,7 +590,7 @@ GameObject:
   - component: {fileID: 1936776698756891327}
   m_Layer: 0
   m_Name: coin(Clone)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -659,7 +659,7 @@ GameObject:
   - component: {fileID: 1179636687570746240}
   m_Layer: 0
   m_Name: coin(Clone)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -994,7 +994,7 @@ GameObject:
   - component: {fileID: 6100423475722282875}
   m_Layer: 0
   m_Name: coin(Clone)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1158,7 +1158,7 @@ GameObject:
   - component: {fileID: 6296655985492546618}
   m_Layer: 0
   m_Name: coin(Clone)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1258,7 +1258,7 @@ GameObject:
   - component: {fileID: 2969789916745539787}
   m_Layer: 0
   m_Name: coin(Clone)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1391,7 +1391,7 @@ GameObject:
   - component: {fileID: 4831685959264413435}
   m_Layer: 0
   m_Name: coin(Clone)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1578,7 +1578,7 @@ GameObject:
   - component: {fileID: 8453928019785814853}
   m_Layer: 0
   m_Name: coin(Clone)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1765,7 +1765,7 @@ GameObject:
   - component: {fileID: 2383085625760589909}
   m_Layer: 0
   m_Name: coin(Clone)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1834,7 +1834,7 @@ GameObject:
   - component: {fileID: 4101992325525247682}
   m_Layer: 0
   m_Name: coin(Clone)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2202,7 +2202,7 @@ GameObject:
   - component: {fileID: 3496843047020328762}
   m_Layer: 0
   m_Name: coin(Clone)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2809,7 +2809,7 @@ GameObject:
   - component: {fileID: 2640103878845743208}
   m_Layer: 0
   m_Name: coin(Clone)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2964,7 +2964,7 @@ GameObject:
   - component: {fileID: 7317431547241833666}
   m_Layer: 0
   m_Name: coin(Clone)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3033,7 +3033,7 @@ GameObject:
   - component: {fileID: 7591377475694367732}
   m_Layer: 0
   m_Name: coin(Clone)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3133,7 +3133,7 @@ GameObject:
   - component: {fileID: 4445195706748278669}
   m_Layer: 0
   m_Name: coin(Clone)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3266,7 +3266,7 @@ GameObject:
   - component: {fileID: 8993194719148117961}
   m_Layer: 0
   m_Name: coin(Clone)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3988,7 +3988,7 @@ GameObject:
   - component: {fileID: 2940854466009852751}
   m_Layer: 0
   m_Name: coin(Clone)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4268,7 +4268,7 @@ GameObject:
   - component: {fileID: 7135432959837907476}
   m_Layer: 0
   m_Name: coin(Clone)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4550,7 +4550,7 @@ GameObject:
   - component: {fileID: 931347512521186444}
   m_Layer: 0
   m_Name: coin(Clone)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4651,7 +4651,7 @@ GameObject:
   - component: {fileID: 6893418928181936598}
   m_Layer: 0
   m_Name: coin(Clone)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4720,7 +4720,7 @@ GameObject:
   - component: {fileID: 7967000149187911749}
   m_Layer: 0
   m_Name: coin(Clone)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5267,7 +5267,7 @@ GameObject:
   - component: {fileID: 5550371239247823598}
   m_Layer: 0
   m_Name: coin(Clone)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5548,7 +5548,7 @@ GameObject:
   - component: {fileID: 2437001172712291710}
   m_Layer: 0
   m_Name: coin(Clone)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5617,7 +5617,7 @@ GameObject:
   - component: {fileID: 3087364965950296938}
   m_Layer: 0
   m_Name: coin(Clone)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5718,7 +5718,7 @@ GameObject:
   - component: {fileID: 6864009716541719241}
   m_Layer: 0
   m_Name: coin(Clone)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6235,7 +6235,7 @@ GameObject:
   - component: {fileID: 8373364669358701789}
   m_Layer: 0
   m_Name: coin(Clone)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6390,7 +6390,7 @@ GameObject:
   - component: {fileID: 843877323956885860}
   m_Layer: 0
   m_Name: coin(Clone)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6672,7 +6672,7 @@ GameObject:
   - component: {fileID: 316964824593586397}
   m_Layer: 0
   m_Name: coin(Clone)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6741,7 +6741,7 @@ GameObject:
   - component: {fileID: 4135889035320864815}
   m_Layer: 0
   m_Name: coin(Clone)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7762,7 +7762,7 @@ GameObject:
   - component: {fileID: 5838076029388231516}
   m_Layer: 0
   m_Name: coin(Clone)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8365,7 +8365,7 @@ GameObject:
   - component: {fileID: 6027036282282296250}
   m_Layer: 0
   m_Name: coin(Clone)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8552,7 +8552,7 @@ GameObject:
   - component: {fileID: 1330744719979219906}
   m_Layer: 0
   m_Name: coin(Clone)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8621,7 +8621,7 @@ GameObject:
   - component: {fileID: 1551771010604161334}
   m_Layer: 0
   m_Name: coin(Clone)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8690,7 +8690,7 @@ GameObject:
   - component: {fileID: 5760905454419577423}
   m_Layer: 0
   m_Name: coin(Clone)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8759,7 +8759,7 @@ GameObject:
   - component: {fileID: 2899524198583477386}
   m_Layer: 0
   m_Name: coin(Clone)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8855,7 +8855,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 492870816218487667}
-  - component: {fileID: 1768568351966826957}
   m_Layer: 0
   m_Name: DowntownTile_01
   m_TagString: Untagged
@@ -8882,27 +8881,6 @@ Transform:
   - {fileID: 2008799663306220581}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1768568351966826957
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3257337931741777365}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee826691225f4bb4dbfa61bc4dea4854, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  colliderObj:
-  - {fileID: 4009716325937776529, guid: bddde96586ad17d4490632b9a89409b2, type: 3}
-  noncolliderObj: []
-  colliderSpawnCount: 100
-  noncolliderSpawnCount: 0
-  pathLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  colliderFloor: {fileID: 3470670619029867777}
 --- !u!1 &3299463533984921092
 GameObject:
   m_ObjectHideFlags: 0
@@ -8979,7 +8957,7 @@ GameObject:
   - component: {fileID: 9151371560960272043}
   m_Layer: 0
   m_Name: coin(Clone)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9079,7 +9057,7 @@ GameObject:
   - component: {fileID: 1533192449995915998}
   m_Layer: 0
   m_Name: coin(Clone)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9456,7 +9434,7 @@ GameObject:
   - component: {fileID: 920261492516925299}
   m_Layer: 0
   m_Name: coin(Clone)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9806,7 +9784,7 @@ GameObject:
   - component: {fileID: 9216763176091216345}
   m_Layer: 0
   m_Name: coin(Clone)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10538,7 +10516,7 @@ GameObject:
   - component: {fileID: 8582764880403504029}
   m_Layer: 0
   m_Name: coin(Clone)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10787,7 +10765,7 @@ GameObject:
   - component: {fileID: 3077262121041658334}
   m_Layer: 0
   m_Name: coin(Clone)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10856,7 +10834,7 @@ GameObject:
   - component: {fileID: 7978249219410213285}
   m_Layer: 0
   m_Name: coin(Clone)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10989,7 +10967,7 @@ GameObject:
   - component: {fileID: 8487788114725317317}
   m_Layer: 0
   m_Name: coin(Clone)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11058,7 +11036,7 @@ GameObject:
   - component: {fileID: 1922855770073997795}
   m_Layer: 0
   m_Name: coin(Clone)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11637,7 +11615,7 @@ GameObject:
   - component: {fileID: 5359156314270729912}
   m_Layer: 0
   m_Name: coin(Clone)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11802,7 +11780,7 @@ GameObject:
   - component: {fileID: 4559829038648660773}
   m_Layer: 0
   m_Name: coin(Clone)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11957,7 +11935,7 @@ GameObject:
   - component: {fileID: 2796680648456396592}
   m_Layer: 0
   m_Name: coin(Clone)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12262,7 +12240,7 @@ GameObject:
   - component: {fileID: 6283083443116351671}
   m_Layer: 0
   m_Name: coin(Clone)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12566,7 +12544,7 @@ GameObject:
   - component: {fileID: 1345783911625690356}
   m_Layer: 0
   m_Name: coin(Clone)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13123,7 +13101,7 @@ GameObject:
   - component: {fileID: 6228737595366333018}
   m_Layer: 0
   m_Name: coin(Clone)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13192,7 +13170,7 @@ GameObject:
   - component: {fileID: 7824848850251088079}
   m_Layer: 0
   m_Name: coin(Clone)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13443,7 +13421,7 @@ GameObject:
   - component: {fileID: 1376498429706194392}
   m_Layer: 0
   m_Name: coin(Clone)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14639,7 +14617,7 @@ GameObject:
   - component: {fileID: 4115319274971003276}
   m_Layer: 0
   m_Name: coin(Clone)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15030,7 +15008,7 @@ GameObject:
   - component: {fileID: 6285873065397744482}
   m_Layer: 0
   m_Name: coin(Clone)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15161,7 +15139,7 @@ GameObject:
   - component: {fileID: 3961181669495220169}
   m_Layer: 0
   m_Name: coin(Clone)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15230,7 +15208,7 @@ GameObject:
   - component: {fileID: 3432610778336529882}
   m_Layer: 0
   m_Name: coin(Clone)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15552,7 +15530,7 @@ GameObject:
   - component: {fileID: 9148182126818621093}
   m_Layer: 0
   m_Name: coin(Clone)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15707,7 +15685,7 @@ GameObject:
   - component: {fileID: 7444359022992090832}
   m_Layer: 0
   m_Name: coin(Clone)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15808,7 +15786,7 @@ GameObject:
   - component: {fileID: 709933645999573245}
   m_Layer: 0
   m_Name: coin(Clone)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15877,7 +15855,7 @@ GameObject:
   - component: {fileID: 1838622530722500409}
   m_Layer: 0
   m_Name: coin(Clone)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16480,7 +16458,7 @@ GameObject:
   - component: {fileID: 5714929537213566192}
   m_Layer: 0
   m_Name: coin(Clone)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16612,7 +16590,7 @@ GameObject:
   - component: {fileID: 6983434077244416678}
   m_Layer: 0
   m_Name: coin(Clone)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16681,7 +16659,7 @@ GameObject:
   - component: {fileID: 7242981835544042468}
   m_Layer: 0
   m_Name: coin(Clone)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16877,7 +16855,7 @@ GameObject:
   - component: {fileID: 231003307835395408}
   m_Layer: 0
   m_Name: coin(Clone)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17042,7 +17020,7 @@ GameObject:
   - component: {fileID: 7723703779296774450}
   m_Layer: 0
   m_Name: coin(Clone)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17354,7 +17332,7 @@ GameObject:
   - component: {fileID: 8730864331096812993}
   m_Layer: 0
   m_Name: coin(Clone)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17540,7 +17518,7 @@ GameObject:
   - component: {fileID: 6355574098527867167}
   m_Layer: 0
   m_Name: coin(Clone)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17867,7 +17845,7 @@ GameObject:
   - component: {fileID: 2567496954385489546}
   m_Layer: 0
   m_Name: coin(Clone)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18518,7 +18496,7 @@ GameObject:
   - component: {fileID: 119334574180367985}
   m_Layer: 0
   m_Name: coin(Clone)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19021,7 +18999,7 @@ GameObject:
   - component: {fileID: 5915812447499284033}
   m_Layer: 0
   m_Name: coin(Clone)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19665,7 +19643,7 @@ GameObject:
   - component: {fileID: 7220113473303681515}
   m_Layer: 0
   m_Name: coin(Clone)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19765,7 +19743,7 @@ GameObject:
   - component: {fileID: 3377796797477387766}
   m_Layer: 0
   m_Name: coin(Clone)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20133,7 +20111,7 @@ GameObject:
   - component: {fileID: 6610172500492382719}
   m_Layer: 0
   m_Name: coin(Clone)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20234,7 +20212,7 @@ GameObject:
   - component: {fileID: 4544397437559590298}
   m_Layer: 0
   m_Name: coin(Clone)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20428,7 +20406,7 @@ GameObject:
   - component: {fileID: 4685714668303582977}
   m_Layer: 0
   m_Name: coin(Clone)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20678,7 +20656,7 @@ GameObject:
   - component: {fileID: 7696877316340220798}
   m_Layer: 0
   m_Name: coin(Clone)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20779,7 +20757,7 @@ GameObject:
   - component: {fileID: 3700314556167773919}
   m_Layer: 0
   m_Name: coin(Clone)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21376,7 +21354,7 @@ GameObject:
   - component: {fileID: 2451400741870104596}
   m_Layer: 0
   m_Name: coin(Clone)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21477,7 +21455,7 @@ GameObject:
   - component: {fileID: 5871801482234694999}
   m_Layer: 0
   m_Name: coin(Clone)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21578,7 +21556,7 @@ GameObject:
   - component: {fileID: 4088755756739828393}
   m_Layer: 0
   m_Name: coin(Clone)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21678,7 +21656,7 @@ GameObject:
   - component: {fileID: 352804800989487626}
   m_Layer: 0
   m_Name: coin(Clone)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22046,7 +22024,7 @@ GameObject:
   - component: {fileID: 908545348061314394}
   m_Layer: 0
   m_Name: coin(Clone)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22201,7 +22179,7 @@ GameObject:
   - component: {fileID: 908673567221593687}
   m_Layer: 0
   m_Name: coin(Clone)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22548,7 +22526,7 @@ GameObject:
   - component: {fileID: 7626141758149093201}
   m_Layer: 0
   m_Name: coin(Clone)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22766,7 +22744,7 @@ GameObject:
   - component: {fileID: 6902265102680275832}
   m_Layer: 0
   m_Name: coin(Clone)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22867,7 +22845,7 @@ GameObject:
   - component: {fileID: 8076597373354829607}
   m_Layer: 0
   m_Name: coin(Clone)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23117,7 +23095,7 @@ GameObject:
   - component: {fileID: 1357850099405681561}
   m_Layer: 0
   m_Name: coin(Clone)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23485,7 +23463,7 @@ GameObject:
   - component: {fileID: 2732827442386396913}
   m_Layer: 0
   m_Name: coin(Clone)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23853,7 +23831,7 @@ GameObject:
   - component: {fileID: 6034152642264744617}
   m_Layer: 0
   m_Name: coin(Clone)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24308,7 +24286,7 @@ GameObject:
   - component: {fileID: 4698456317940963990}
   m_Layer: 0
   m_Name: coin(Clone)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24377,7 +24355,7 @@ GameObject:
   - component: {fileID: 2729592620541217948}
   m_Layer: 0
   m_Name: coin(Clone)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24595,7 +24573,7 @@ GameObject:
   - component: {fileID: 5481637940137916050}
   m_Layer: 0
   m_Name: coin(Clone)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24868,7 +24846,7 @@ GameObject:
   - component: {fileID: 4590853735344083400}
   m_Layer: 0
   m_Name: coin(Clone)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25109,7 +25087,7 @@ GameObject:
   - component: {fileID: 6122002300232339345}
   m_Layer: 0
   m_Name: coin(Clone)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25242,7 +25220,7 @@ GameObject:
   - component: {fileID: 7939625393487969809}
   m_Layer: 0
   m_Name: coin(Clone)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25502,7 +25480,7 @@ GameObject:
   - component: {fileID: 9021248908840776611}
   m_Layer: 0
   m_Name: coin(Clone)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25699,7 +25677,7 @@ GameObject:
   - component: {fileID: 6424507274962707234}
   m_Layer: 0
   m_Name: coin(Clone)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25800,7 +25778,7 @@ GameObject:
   - component: {fileID: 2975252431762189821}
   m_Layer: 0
   m_Name: coin(Clone)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25986,7 +25964,7 @@ GameObject:
   - component: {fileID: 8118097113342701960}
   m_Layer: 0
   m_Name: coin(Clone)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

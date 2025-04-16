@@ -4,9 +4,16 @@ using UnityEngine;
 
 public class UI_Lobby : UIBase
 {
-    private void Start()
+    public override void Start()
     {
+        OPTIONSHOW.transform.parent.gameObject.SetActive(false);
         PlayBGM();
+    }
+
+    public void OnBtnGoToIngame()
+    {
+        ClickSound();
+        ChangeScene(eSCENE.eSCENE_STAGE);
     }
 
     public void OnBtnGoToPractice()

@@ -1,45 +1,31 @@
 // UI_Practice.cs - 연습 모드 UI 및 일시정지/옵션 제어
 
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UI_Practice : UIBase
 {
     public SoundData PRACTICE_BGM;
+    public Text speedText;
 
-    private void Start()
+    public override void Start()
     {
+        OPTIONSHOW.transform.parent.gameObject.SetActive(false);
+        OPTIONSHOW.SetActive(false);
         PlayBGM();
     }
 
-    //public override void ToggleOptionWindow()
-    //{
-    //    base.ToggleOptionWindow();
-
-    //    if (isOptionShow)
-    //    {
-    //        Time.timeScale = 0f;
-    //        Shared.SoundManager.StopLoopSound();
-    //    }
-    //    else
-    //    {
-    //        Time.timeScale = 1f;
-    //        Shared.SoundManager.ResumeLoopSound();
-    //    }
-    //}
-
-    public override void TogglePauseWindow()
+    public override void Update()
     {
-        base.TogglePauseWindow();
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (isOptionShow)
+                ToggleOptionWindow();
+            else
+                TogglePauseWindow();
+        }
 
-        if (isPauseShow)
-        {
-            Time.timeScale = 0f;
-            Shared.SoundManager.StopLoopSound();
-        }
-        else
-        {
-            Time.timeScale = 1f;
-            Shared.SoundManager.ResumeLoopSound();
-        }
+        if (speedText != null)
+            speedText.text = string.Format("{0:0} Km/h", Shared.Car.currentSpeed);
     }
 }

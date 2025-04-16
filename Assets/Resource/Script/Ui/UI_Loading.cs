@@ -13,7 +13,7 @@ public class UI_Loading : UIBase
     [Header("·£´ý ÆÁ")]
     public Text tipText;
 
-    private void Start()
+    public override void Start()
     {
         timer = 0f;
         tipText.text = GetRandomTip();

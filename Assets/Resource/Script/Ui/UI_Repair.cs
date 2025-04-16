@@ -6,8 +6,9 @@ public class UI_Repair : UIBase
 {
     public SoundData REPAIR_BGM;
 
-    private void Start()
+    public override void Start()
     {
+        OPTIONSHOW.transform.parent.gameObject.SetActive(false);
         PlayBGM();
     }
 

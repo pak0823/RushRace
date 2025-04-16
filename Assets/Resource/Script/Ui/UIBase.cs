@@ -2,7 +2,7 @@
 
 using UnityEngine;
 
-public class UIBase : MonoBehaviour
+public abstract class UIBase : MonoBehaviour
 {
     protected bool isOptionShow = false;
     protected bool isPauseShow = false;
@@ -11,16 +11,19 @@ public class UIBase : MonoBehaviour
     public SoundData BGM;
 
     public GameObject OPTIONSHOW;
+    public GameObject PAUSESHOW;
+
+    public abstract void Start();
 
     public virtual void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            if (isOptionShow)
-                ToggleOptionWindow();
-            else if (isPauseShow)
-                TogglePauseWindow();
-        }
+        //if (Input.GetKeyDown(KeyCode.Escape))
+        //{
+        //    if (isOptionShow)
+        //        ToggleOptionWindow();
+        //    else if (isPauseShow)
+        //        TogglePauseWindow();
+        //}
     }
 
     public void ToggleOptionWindow()
@@ -29,9 +32,31 @@ public class UIBase : MonoBehaviour
 
         isOptionShow = !isOptionShow;
         OPTIONSHOW.SetActive(isOptionShow);
+        OPTIONSHOW.transform.parent.gameObject.SetActive(isOptionShow);
         ClickSound();
     }
-    public virtual void TogglePauseWindow() { }
+    public virtual void TogglePauseWindow() 
+    {
+        if (PAUSESHOW == null) return;
+
+        isPauseShow = !isPauseShow;
+
+        if (isPauseShow)
+        {
+            Time.timeScale = 0f;
+            Shared.SoundManager.StopLoopSound();
+        }
+        else
+        {
+            Time.timeScale = 1f;
+            Shared.SoundManager.ResumeLoopSound();
+        }
+
+        
+        PAUSESHOW.SetActive(isPauseShow);
+        PAUSESHOW.transform.parent.gameObject.SetActive(isPauseShow);
+        ClickSound();
+    }
 
     public void OnBtnRepeat()
     {
@@ -40,7 +65,18 @@ public class UIBase : MonoBehaviour
             Time.timeScale = 1f;
             TogglePauseWindow();
         }
+
         Shared.Car.ResetVehicle();
+
+        // 미션 상태 초기화: 남은 시간과 수집 코인 초기화
+        if (Shared.MissionManager != null)
+        {
+            Shared.MissionManager.StartMission();
+        }
+        if (Shared.CoinManager != null)
+        {
+            Shared.CoinManager.ResetCoins();
+        }
     }
 
     public void ChangeScene(eSCENE scene)
@@ -48,6 +84,7 @@ public class UIBase : MonoBehaviour
         Shared.SceneMgr.ChangeScene(scene);
         Shared.SoundManager.StopPlaySound();
         Shared.SoundManager.StopLoopSound();
+        Time.timeScale = 1f;
     }
 
     public void OnBtnGoTitle() => ChangeScene(eSCENE.eSCENE_TITLE);

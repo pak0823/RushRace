@@ -42,9 +42,73 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8265949259699288406}
     m_Modifications:
+    - target: {fileID: 108381184520489334, guid: 75b57d00249559d4782054b5666e1fdd, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 164737405236850933, guid: 75b57d00249559d4782054b5666e1fdd, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 367640192194627847, guid: 75b57d00249559d4782054b5666e1fdd, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 473321503450582866, guid: 75b57d00249559d4782054b5666e1fdd, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 474271951020776192, guid: 75b57d00249559d4782054b5666e1fdd, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 647112929456578511, guid: 75b57d00249559d4782054b5666e1fdd, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 686010438568450327, guid: 75b57d00249559d4782054b5666e1fdd, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 713241060625574067, guid: 75b57d00249559d4782054b5666e1fdd, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 758738875303346956, guid: 75b57d00249559d4782054b5666e1fdd, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 858478821064886828, guid: 75b57d00249559d4782054b5666e1fdd, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 1481617364543038571, guid: 75b57d00249559d4782054b5666e1fdd, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     - target: {fileID: 2030877498649629434, guid: 75b57d00249559d4782054b5666e1fdd, type: 3}
       propertyPath: m_Name
       value: DesertTile_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 2171488841592696524, guid: 75b57d00249559d4782054b5666e1fdd, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 2177074367850385614, guid: 75b57d00249559d4782054b5666e1fdd, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 2191512311154362324, guid: 75b57d00249559d4782054b5666e1fdd, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 2275670173982434171, guid: 75b57d00249559d4782054b5666e1fdd, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 2401817927822052263, guid: 75b57d00249559d4782054b5666e1fdd, type: 3}
+      propertyPath: m_TagString
+      value: Coin
       objectReference: {fileID: 0}
     - target: {fileID: 2554883512913653370, guid: 75b57d00249559d4782054b5666e1fdd, type: 3}
       propertyPath: m_LocalPosition.x
@@ -86,6 +150,78 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2761298594364436798, guid: 75b57d00249559d4782054b5666e1fdd, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 2826282357596903466, guid: 75b57d00249559d4782054b5666e1fdd, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 3060710552087746486, guid: 75b57d00249559d4782054b5666e1fdd, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 3085603558363187937, guid: 75b57d00249559d4782054b5666e1fdd, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 3115555709174029031, guid: 75b57d00249559d4782054b5666e1fdd, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 3166902284689558897, guid: 75b57d00249559d4782054b5666e1fdd, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 3231895302856509914, guid: 75b57d00249559d4782054b5666e1fdd, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 3316972982943563904, guid: 75b57d00249559d4782054b5666e1fdd, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 3485609504445793762, guid: 75b57d00249559d4782054b5666e1fdd, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 3516356965537878813, guid: 75b57d00249559d4782054b5666e1fdd, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 3597139176052634759, guid: 75b57d00249559d4782054b5666e1fdd, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 3865022643572185139, guid: 75b57d00249559d4782054b5666e1fdd, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 4138521052712290827, guid: 75b57d00249559d4782054b5666e1fdd, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 4166205225016266086, guid: 75b57d00249559d4782054b5666e1fdd, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 4282952411826566938, guid: 75b57d00249559d4782054b5666e1fdd, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 4399845674368702645, guid: 75b57d00249559d4782054b5666e1fdd, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 4428020700931421921, guid: 75b57d00249559d4782054b5666e1fdd, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 4573323907802023614, guid: 75b57d00249559d4782054b5666e1fdd, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     - target: {fileID: 4586535371291344110, guid: 75b57d00249559d4782054b5666e1fdd, type: 3}
       propertyPath: colliderSpawnCount
       value: 70
@@ -98,6 +234,42 @@ PrefabInstance:
       propertyPath: noncolliderObj.Array.size
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4736144893749621789, guid: 75b57d00249559d4782054b5666e1fdd, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 5564829786960433401, guid: 75b57d00249559d4782054b5666e1fdd, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 5628324796518506977, guid: 75b57d00249559d4782054b5666e1fdd, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 5649644873979389083, guid: 75b57d00249559d4782054b5666e1fdd, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 5977189851770883025, guid: 75b57d00249559d4782054b5666e1fdd, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 5977221938019654771, guid: 75b57d00249559d4782054b5666e1fdd, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 6047330491080259512, guid: 75b57d00249559d4782054b5666e1fdd, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 6263356607616408671, guid: 75b57d00249559d4782054b5666e1fdd, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 6523696974437591919, guid: 75b57d00249559d4782054b5666e1fdd, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     - target: {fileID: 6631895730629323367, guid: 75b57d00249559d4782054b5666e1fdd, type: 3}
       propertyPath: m_LocalPosition.y
       value: 3.5506
@@ -105,6 +277,114 @@ PrefabInstance:
     - target: {fileID: 6631895730629323367, guid: 75b57d00249559d4782054b5666e1fdd, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6864491582084644835, guid: 75b57d00249559d4782054b5666e1fdd, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 6864629547314283056, guid: 75b57d00249559d4782054b5666e1fdd, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 6883964031260730146, guid: 75b57d00249559d4782054b5666e1fdd, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 7193764273646615742, guid: 75b57d00249559d4782054b5666e1fdd, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 7315649416909027332, guid: 75b57d00249559d4782054b5666e1fdd, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 7336229369268640296, guid: 75b57d00249559d4782054b5666e1fdd, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 7368587540188408404, guid: 75b57d00249559d4782054b5666e1fdd, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 7399291247019588080, guid: 75b57d00249559d4782054b5666e1fdd, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 7548808703434898938, guid: 75b57d00249559d4782054b5666e1fdd, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 7550914411534274631, guid: 75b57d00249559d4782054b5666e1fdd, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 7574648743784923169, guid: 75b57d00249559d4782054b5666e1fdd, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 7619212554832108402, guid: 75b57d00249559d4782054b5666e1fdd, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 7781472938191680002, guid: 75b57d00249559d4782054b5666e1fdd, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 7797429862967950949, guid: 75b57d00249559d4782054b5666e1fdd, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 7825475739573389639, guid: 75b57d00249559d4782054b5666e1fdd, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 7847143985777181676, guid: 75b57d00249559d4782054b5666e1fdd, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 7969212444112447802, guid: 75b57d00249559d4782054b5666e1fdd, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 7973035484269638124, guid: 75b57d00249559d4782054b5666e1fdd, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 8007665674187604438, guid: 75b57d00249559d4782054b5666e1fdd, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 8094746023096090849, guid: 75b57d00249559d4782054b5666e1fdd, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 8336883511481468584, guid: 75b57d00249559d4782054b5666e1fdd, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 8356580381165586518, guid: 75b57d00249559d4782054b5666e1fdd, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 8386223333116552570, guid: 75b57d00249559d4782054b5666e1fdd, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 8680205358443999621, guid: 75b57d00249559d4782054b5666e1fdd, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 8882251115946329717, guid: 75b57d00249559d4782054b5666e1fdd, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 9053008874676356429, guid: 75b57d00249559d4782054b5666e1fdd, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 9093566715883937168, guid: 75b57d00249559d4782054b5666e1fdd, type: 3}
+      propertyPath: m_TagString
+      value: Coin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -124,6 +404,146 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8265949259699288406}
     m_Modifications:
+    - target: {fileID: 106525983507160906, guid: 8b133748055996b49b403197a61746e2, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 120472251655411125, guid: 8b133748055996b49b403197a61746e2, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 256466420759072609, guid: 8b133748055996b49b403197a61746e2, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 307870621551407816, guid: 8b133748055996b49b403197a61746e2, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 461467362093352463, guid: 8b133748055996b49b403197a61746e2, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 569607276638187711, guid: 8b133748055996b49b403197a61746e2, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 601441315672269585, guid: 8b133748055996b49b403197a61746e2, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 640975290142036322, guid: 8b133748055996b49b403197a61746e2, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 767448590566855990, guid: 8b133748055996b49b403197a61746e2, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 1021740873502920537, guid: 8b133748055996b49b403197a61746e2, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 1047631517888200863, guid: 8b133748055996b49b403197a61746e2, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 1061948060932438135, guid: 8b133748055996b49b403197a61746e2, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 1181975971877407442, guid: 8b133748055996b49b403197a61746e2, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 1317321397006711221, guid: 8b133748055996b49b403197a61746e2, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 1397301988544719949, guid: 8b133748055996b49b403197a61746e2, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443226787457386023, guid: 8b133748055996b49b403197a61746e2, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 1622057409541234072, guid: 8b133748055996b49b403197a61746e2, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 1721029854577053961, guid: 8b133748055996b49b403197a61746e2, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 1746281209767565902, guid: 8b133748055996b49b403197a61746e2, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 1783285164075167041, guid: 8b133748055996b49b403197a61746e2, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 1826947238080059883, guid: 8b133748055996b49b403197a61746e2, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 1911751879835091276, guid: 8b133748055996b49b403197a61746e2, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 2148865012522768477, guid: 8b133748055996b49b403197a61746e2, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342182199684035095, guid: 8b133748055996b49b403197a61746e2, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 2404894085794510013, guid: 8b133748055996b49b403197a61746e2, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 2574883714415042571, guid: 8b133748055996b49b403197a61746e2, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 3043340401765745683, guid: 8b133748055996b49b403197a61746e2, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 3045313409749723433, guid: 8b133748055996b49b403197a61746e2, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 3276963341773847573, guid: 8b133748055996b49b403197a61746e2, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 3303741502242838002, guid: 8b133748055996b49b403197a61746e2, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 3398944653208465461, guid: 8b133748055996b49b403197a61746e2, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 3524129464429603249, guid: 8b133748055996b49b403197a61746e2, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 3733101005382739344, guid: 8b133748055996b49b403197a61746e2, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 3763766661738940552, guid: 8b133748055996b49b403197a61746e2, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 3976851305549717894, guid: 8b133748055996b49b403197a61746e2, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     - target: {fileID: 4125438579994050225, guid: 8b133748055996b49b403197a61746e2, type: 3}
       propertyPath: colliderSpawnCount
       value: 100
@@ -151,6 +571,146 @@ PrefabInstance:
     - target: {fileID: 4174460819513175705, guid: 8b133748055996b49b403197a61746e2, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4368815747494241405, guid: 8b133748055996b49b403197a61746e2, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 4383291941545756325, guid: 8b133748055996b49b403197a61746e2, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 4400369828703299991, guid: 8b133748055996b49b403197a61746e2, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 4897939013471916789, guid: 8b133748055996b49b403197a61746e2, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 4898690041625152675, guid: 8b133748055996b49b403197a61746e2, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 5029594635629776638, guid: 8b133748055996b49b403197a61746e2, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 5092970098391662208, guid: 8b133748055996b49b403197a61746e2, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 5097669698270341046, guid: 8b133748055996b49b403197a61746e2, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 5218742495784092460, guid: 8b133748055996b49b403197a61746e2, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 5228272427716126975, guid: 8b133748055996b49b403197a61746e2, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 5262954509120188294, guid: 8b133748055996b49b403197a61746e2, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 5318283569374215242, guid: 8b133748055996b49b403197a61746e2, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 5481327634467317461, guid: 8b133748055996b49b403197a61746e2, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 5522726912828846944, guid: 8b133748055996b49b403197a61746e2, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 5540007942335272631, guid: 8b133748055996b49b403197a61746e2, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 5685165289419514959, guid: 8b133748055996b49b403197a61746e2, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 6022322415291967218, guid: 8b133748055996b49b403197a61746e2, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 6137515164741358831, guid: 8b133748055996b49b403197a61746e2, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 6154170811093967587, guid: 8b133748055996b49b403197a61746e2, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 6319690338525734632, guid: 8b133748055996b49b403197a61746e2, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 6324609046305973240, guid: 8b133748055996b49b403197a61746e2, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 6396085985627902486, guid: 8b133748055996b49b403197a61746e2, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 6400029307117279512, guid: 8b133748055996b49b403197a61746e2, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 6449407065927370175, guid: 8b133748055996b49b403197a61746e2, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 6513484884144268484, guid: 8b133748055996b49b403197a61746e2, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 6582402232949128063, guid: 8b133748055996b49b403197a61746e2, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 6749381885286084137, guid: 8b133748055996b49b403197a61746e2, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 6759303756150070758, guid: 8b133748055996b49b403197a61746e2, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 6775501047424917488, guid: 8b133748055996b49b403197a61746e2, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 6835598345129434383, guid: 8b133748055996b49b403197a61746e2, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 6876009668188146397, guid: 8b133748055996b49b403197a61746e2, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 6931708733496351812, guid: 8b133748055996b49b403197a61746e2, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 7128231417254111082, guid: 8b133748055996b49b403197a61746e2, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232876520949812729, guid: 8b133748055996b49b403197a61746e2, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 7244414488487684204, guid: 8b133748055996b49b403197a61746e2, type: 3}
+      propertyPath: m_TagString
+      value: Coin
       objectReference: {fileID: 0}
     - target: {fileID: 7324776895340842103, guid: 8b133748055996b49b403197a61746e2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -192,9 +752,101 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7362697200193206385, guid: 8b133748055996b49b403197a61746e2, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 7449676872363479574, guid: 8b133748055996b49b403197a61746e2, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 7567049192711249567, guid: 8b133748055996b49b403197a61746e2, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 7584655726022706876, guid: 8b133748055996b49b403197a61746e2, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 7636310581503382306, guid: 8b133748055996b49b403197a61746e2, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 7797082646108652804, guid: 8b133748055996b49b403197a61746e2, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 7868896287066732621, guid: 8b133748055996b49b403197a61746e2, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 7876621943377189117, guid: 8b133748055996b49b403197a61746e2, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 7888726856261921460, guid: 8b133748055996b49b403197a61746e2, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 7927490594912503662, guid: 8b133748055996b49b403197a61746e2, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 7958089528679291134, guid: 8b133748055996b49b403197a61746e2, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 8119548415800086477, guid: 8b133748055996b49b403197a61746e2, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 8227343103890061221, guid: 8b133748055996b49b403197a61746e2, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 8281292849922472773, guid: 8b133748055996b49b403197a61746e2, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 8583043463147028080, guid: 8b133748055996b49b403197a61746e2, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 8677552719954308471, guid: 8b133748055996b49b403197a61746e2, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 8698105952788515254, guid: 8b133748055996b49b403197a61746e2, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 8812179372358920385, guid: 8b133748055996b49b403197a61746e2, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     - target: {fileID: 8840394896856605469, guid: 8b133748055996b49b403197a61746e2, type: 3}
       propertyPath: m_Name
       value: DesertTile_03
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844401066633112350, guid: 8b133748055996b49b403197a61746e2, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 8890247581096267221, guid: 8b133748055996b49b403197a61746e2, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 9043254179286781604, guid: 8b133748055996b49b403197a61746e2, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 9076610822720924942, guid: 8b133748055996b49b403197a61746e2, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 9180757293529948247, guid: 8b133748055996b49b403197a61746e2, type: 3}
+      propertyPath: m_TagString
+      value: Coin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -214,6 +866,42 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8265949259699288406}
     m_Modifications:
+    - target: {fileID: 453241500245294962, guid: 1b0e1f4bcc8e49f49959893ccf9d11ce, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 500571068763155948, guid: 1b0e1f4bcc8e49f49959893ccf9d11ce, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 695086911350387232, guid: 1b0e1f4bcc8e49f49959893ccf9d11ce, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 723310039449131506, guid: 1b0e1f4bcc8e49f49959893ccf9d11ce, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 1031876983874413849, guid: 1b0e1f4bcc8e49f49959893ccf9d11ce, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 1151975212474735385, guid: 1b0e1f4bcc8e49f49959893ccf9d11ce, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 1201658399394998291, guid: 1b0e1f4bcc8e49f49959893ccf9d11ce, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 1298292150703745012, guid: 1b0e1f4bcc8e49f49959893ccf9d11ce, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 1419763638713961102, guid: 1b0e1f4bcc8e49f49959893ccf9d11ce, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     - target: {fileID: 1978792115830240705, guid: 1b0e1f4bcc8e49f49959893ccf9d11ce, type: 3}
       propertyPath: colliderSpawnCount
       value: 50
@@ -234,9 +922,53 @@ PrefabInstance:
       propertyPath: noncolliderObj.Array.size
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2247144669889075868, guid: 1b0e1f4bcc8e49f49959893ccf9d11ce, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 2291499611930552568, guid: 1b0e1f4bcc8e49f49959893ccf9d11ce, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 2418829782641592630, guid: 1b0e1f4bcc8e49f49959893ccf9d11ce, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 2942071712710258812, guid: 1b0e1f4bcc8e49f49959893ccf9d11ce, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 2974624623591719626, guid: 1b0e1f4bcc8e49f49959893ccf9d11ce, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 3012368320115926458, guid: 1b0e1f4bcc8e49f49959893ccf9d11ce, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 3022633386844063784, guid: 1b0e1f4bcc8e49f49959893ccf9d11ce, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     - target: {fileID: 3293754291780542254, guid: 1b0e1f4bcc8e49f49959893ccf9d11ce, type: 3}
       propertyPath: m_Name
       value: DesertTile_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 3460428834674527085, guid: 1b0e1f4bcc8e49f49959893ccf9d11ce, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 3493828201168181065, guid: 1b0e1f4bcc8e49f49959893ccf9d11ce, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 3995393057482573821, guid: 1b0e1f4bcc8e49f49959893ccf9d11ce, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 4047808828895817084, guid: 1b0e1f4bcc8e49f49959893ccf9d11ce, type: 3}
+      propertyPath: m_TagString
+      value: Coin
       objectReference: {fileID: 0}
     - target: {fileID: 4069539003637508342, guid: 1b0e1f4bcc8e49f49959893ccf9d11ce, type: 3}
       propertyPath: m_LocalPosition.x
@@ -277,6 +1009,122 @@ PrefabInstance:
     - target: {fileID: 4069539003637508342, guid: 1b0e1f4bcc8e49f49959893ccf9d11ce, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4439364176869181643, guid: 1b0e1f4bcc8e49f49959893ccf9d11ce, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 4551479990260760539, guid: 1b0e1f4bcc8e49f49959893ccf9d11ce, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 4603090439967887309, guid: 1b0e1f4bcc8e49f49959893ccf9d11ce, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 4647360609619579509, guid: 1b0e1f4bcc8e49f49959893ccf9d11ce, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 4912653037697441194, guid: 1b0e1f4bcc8e49f49959893ccf9d11ce, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 4914044472488361925, guid: 1b0e1f4bcc8e49f49959893ccf9d11ce, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 4947300266653638522, guid: 1b0e1f4bcc8e49f49959893ccf9d11ce, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 5138280366026765598, guid: 1b0e1f4bcc8e49f49959893ccf9d11ce, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 5262736422380983065, guid: 1b0e1f4bcc8e49f49959893ccf9d11ce, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 5291294751547781424, guid: 1b0e1f4bcc8e49f49959893ccf9d11ce, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 5593649443045673378, guid: 1b0e1f4bcc8e49f49959893ccf9d11ce, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 5874070399035320409, guid: 1b0e1f4bcc8e49f49959893ccf9d11ce, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 6302114726012553549, guid: 1b0e1f4bcc8e49f49959893ccf9d11ce, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 6321177225905617304, guid: 1b0e1f4bcc8e49f49959893ccf9d11ce, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 6335185201125420155, guid: 1b0e1f4bcc8e49f49959893ccf9d11ce, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 6406773954336052539, guid: 1b0e1f4bcc8e49f49959893ccf9d11ce, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 6556632008650794695, guid: 1b0e1f4bcc8e49f49959893ccf9d11ce, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 6786194308037790416, guid: 1b0e1f4bcc8e49f49959893ccf9d11ce, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 7166761071029293545, guid: 1b0e1f4bcc8e49f49959893ccf9d11ce, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 7320682347388675782, guid: 1b0e1f4bcc8e49f49959893ccf9d11ce, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 7644387154998569517, guid: 1b0e1f4bcc8e49f49959893ccf9d11ce, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 7843404744959792422, guid: 1b0e1f4bcc8e49f49959893ccf9d11ce, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 8260946227155493138, guid: 1b0e1f4bcc8e49f49959893ccf9d11ce, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 8569576606730703241, guid: 1b0e1f4bcc8e49f49959893ccf9d11ce, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 8763529628117992120, guid: 1b0e1f4bcc8e49f49959893ccf9d11ce, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 8801165434020888875, guid: 1b0e1f4bcc8e49f49959893ccf9d11ce, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 8881135581718975575, guid: 1b0e1f4bcc8e49f49959893ccf9d11ce, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 9145583007157623936, guid: 1b0e1f4bcc8e49f49959893ccf9d11ce, type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 9217162446732420628, guid: 1b0e1f4bcc8e49f49959893ccf9d11ce, type: 3}
+      propertyPath: m_TagString
+      value: Coin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:

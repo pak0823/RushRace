@@ -24,10 +24,15 @@ public class StageIcon : MonoBehaviour
 
     private void OnMouseDown()
     {
-        UI_Stage uiStage = FindObjectOfType<UI_Stage>();
-        if (uiStage != null)
+        // 스테이지 잠금 여부 확인
+        if (!Shared.StageData.IsStageUnlocked(stageNum))
         {
-            uiStage.OnStageIconClicked(stageNum);  // 클릭 → UI에 전달
+            Debug.Log($"스테이지 {stageNum+1}는 아직 잠겨있습니다.");
+            return;
+        }
+        if (Shared.UI_Stage != null)
+        {
+            Shared.UI_Stage.OnStageIconClicked(stageNum);  // 클릭 → UI에 전달
         }
     }
 }

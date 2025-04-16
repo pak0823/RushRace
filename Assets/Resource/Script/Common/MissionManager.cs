@@ -15,6 +15,7 @@ public class MissionManager : MonoBehaviour
 
     private void Start()
     {
+        Shared.MissionManager = this;
         StartMission();
     }
 
@@ -59,11 +60,23 @@ public class MissionManager : MonoBehaviour
         {
             Shared.GameManager.AddMoney(currentCoinCount);
             Debug.Log("미션 성공!");
+
+            int currentStage = StageData.CurrentStageNum;
+            UnlockNextStage(currentStage);  // 별도 함수로 빼놓기
         }
         else
         {
             Debug.Log("미션 실패.");
         }
+    }
+
+    private void UnlockNextStage(int clearedStage)
+    {
+        // 예) 1Stage 클리어시 2Stage 해제
+        //     2Stage 클리어시 3Stage 해제
+        //     ...
+        int nextStage = clearedStage + 1;
+        Shared.StageData.UnlockStage(nextStage);
     }
 
     public float GetRemainingTime()

@@ -6,8 +6,9 @@ public class UI_Shop : UIBase
 {
     public SoundData SHOP_BGM;
 
-    private void Start()
+    public override void Start()
     {
+        OPTIONSHOW.SetActive(false);
         PlayBGM();
     }
 
