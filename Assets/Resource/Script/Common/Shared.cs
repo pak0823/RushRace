@@ -11,6 +11,7 @@ public static class Shared
     public static MissionManager MissionManager;
     public static UI_Stage UI_Stage;
     public static CoinManager CoinManager;
+    public static CarDataManager CarDataManager;
 
     public static Car Car;
     public static Object Object;

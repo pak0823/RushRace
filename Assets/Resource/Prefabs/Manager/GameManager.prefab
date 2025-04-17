@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6513809317569276083}
   - component: {fileID: 7864938699317879870}
+  - component: {fileID: 1559808928877614599}
+  - component: {fileID: 989637365058315753}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -44,3 +46,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 187bfea2ae4335a459de206b9a25d490, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ingameCarPrefabs:
+  - {fileID: 3225874551983908691, guid: 54578b15f0367aa4a95991700936fd1d, type: 3}
+  - {fileID: 3225874551983908691, guid: 2473c0ed16869b644a97c004d8b04e32, type: 3}
+  - {fileID: 3225874551983908691, guid: ab6587ca67c97be44ac689443e08cf56, type: 3}
+  - {fileID: 3225874551983908691, guid: 36a41c90a034dc34ca9cac8f5f00f1d6, type: 3}
+  - {fileID: 3225874551983908691, guid: 4f30989ac1c4fae4f83badf11a255f26, type: 3}
+  - {fileID: 3225874551983908691, guid: 3018f6139c18ed84c82059d47cfeeb40, type: 3}
+  - {fileID: 3225874551983908691, guid: 698b509d7eadf074483d13e527c8921d, type: 3}
+--- !u!114 &1559808928877614599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8697337082084073633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d79f5b1e6ab86f49b496a659e7550d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &989637365058315753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8697337082084073633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f72b47ca79714448b3860933aa98e18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  carUnlocked: 01000000000000

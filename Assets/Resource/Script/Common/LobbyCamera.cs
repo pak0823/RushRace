@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Camera : MonoBehaviour
+public class LobbyCamera : MonoBehaviour
 {
     public Transform target; // 따라다닐 대상
     public float distance = 10.0f; // 대상과의 거리

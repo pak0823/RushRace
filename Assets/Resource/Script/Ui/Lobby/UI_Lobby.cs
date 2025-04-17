@@ -6,7 +6,7 @@ public class UI_Lobby : UIBase
 {
     public override void Start()
     {
-        OPTIONSHOW.transform.parent.gameObject.SetActive(false);
+        OPTIONSHOW.SetActive(false);
         PlayBGM();
     }
 

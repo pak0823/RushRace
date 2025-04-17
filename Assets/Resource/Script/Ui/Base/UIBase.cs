@@ -17,54 +17,45 @@ public abstract class UIBase : MonoBehaviour
 
     public virtual void Update()
     {
-        //if (Input.GetKeyDown(KeyCode.Escape))
-        //{
-        //    if (isOptionShow)
-        //        ToggleOptionWindow();
-        //    else if (isPauseShow)
-        //        TogglePauseWindow();
-        //}
+
     }
 
     public void ToggleOptionWindow()
     {
         if (OPTIONSHOW == null) return;
+        if (isPauseShow) TogglePauseWindow();
 
         isOptionShow = !isOptionShow;
         OPTIONSHOW.SetActive(isOptionShow);
-        OPTIONSHOW.transform.parent.gameObject.SetActive(isOptionShow);
         ClickSound();
     }
     public virtual void TogglePauseWindow() 
     {
         if (PAUSESHOW == null) return;
+        if (isOptionShow) ToggleOptionWindow();
 
         isPauseShow = !isPauseShow;
 
         if (isPauseShow)
         {
-            Time.timeScale = 0f;
             Shared.SoundManager.StopLoopSound();
+            Time.timeScale = 0f;
         }
         else
         {
-            Time.timeScale = 1f;
             Shared.SoundManager.ResumeLoopSound();
+            Time.timeScale = 1f;
         }
-
-        
         PAUSESHOW.SetActive(isPauseShow);
-        PAUSESHOW.transform.parent.gameObject.SetActive(isPauseShow);
         ClickSound();
     }
 
     public void OnBtnRepeat()
     {
+        Time.timeScale = 1f;
+
         if (isPauseShow)
-        {
-            Time.timeScale = 1f;
             TogglePauseWindow();
-        }
 
         Shared.Car.ResetVehicle();
 

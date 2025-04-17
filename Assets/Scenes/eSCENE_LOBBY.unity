@@ -1684,7 +1684,7 @@ GameObject:
   - component: {fileID: 1475521226}
   - component: {fileID: 1475521225}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: PopupContainer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1724,7 +1724,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -1865,7 +1865,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 1434965285}
-  carPrefab: {fileID: 3225874551983908691, guid: 696dc1706f22a70439b413abc08a74d5, type: 3}
+  carPrefabs:
+  - {fileID: 3225874551983908691, guid: 696dc1706f22a70439b413abc08a74d5, type: 3}
+  - {fileID: 3225874551983908691, guid: baf98ff71ec84ae4f87bf2921f94b35a, type: 3}
+  - {fileID: 3225874551983908691, guid: 2c965f4636231ac46b17d2ef180a3d7c, type: 3}
+  - {fileID: 3225874551983908691, guid: 4a0341a940545c9448342f2aad45cd8e, type: 3}
+  - {fileID: 3225874551983908691, guid: 9bc1256eb29630844b3036067a8ba3a8, type: 3}
+  - {fileID: 3225874551983908691, guid: a217e8d604a28eb4b9d091a0352d4065, type: 3}
+  - {fileID: 3225874551983908691, guid: 1592290141e72cb40adfcdf358fb32a2, type: 3}
 --- !u!1 &1595705997
 GameObject:
   m_ObjectHideFlags: 0
@@ -2155,6 +2162,7 @@ MonoBehaviour:
   CLICKSOUND: {fileID: 11400000, guid: f3e6a2930155cd14e9b183eebcf937a6, type: 2}
   BGM: {fileID: 11400000, guid: 7656590353ec86e4f8f0be8adcb04d75, type: 2}
   OPTIONSHOW: {fileID: 545502549}
+  PAUSESHOW: {fileID: 0}
 --- !u!114 &1745248714
 MonoBehaviour:
   m_ObjectHideFlags: 0

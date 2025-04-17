@@ -18,7 +18,7 @@ public class UI_Stage : UIBase
     {
         PlayBGM();
         Shared.UI_Stage = this;
-        OPTIONSHOW.transform.parent.gameObject.SetActive(false);
+        OPTIONSHOW.SetActive(false);
 
         UpdateStageLockUI();
     }

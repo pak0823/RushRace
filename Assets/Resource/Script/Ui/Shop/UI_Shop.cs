@@ -4,18 +4,10 @@ using UnityEngine;
 
 public class UI_Shop : UIBase
 {
-    public SoundData SHOP_BGM;
-
     public override void Start()
     {
         OPTIONSHOW.SetActive(false);
         PlayBGM();
-    }
-
-    public void OnBtnBuyItem()
-    {
-        ClickSound();
-        Shared.GameManager.SpendMoney(10); // 예시 금액 차감
     }
 
     public void OnBtnBack()

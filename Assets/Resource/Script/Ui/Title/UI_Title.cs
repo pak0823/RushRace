@@ -10,7 +10,7 @@ public class UI_Title : UIBase
 
     public override void Start()
     {
-        OPTIONSHOW.transform.parent.gameObject.SetActive(false);
+        OPTIONSHOW.SetActive(false);
         PlayBGM();
     }
     public void OnBtnOptionShow() => ToggleOptionWindow();
@@ -35,6 +35,13 @@ public class UI_Title : UIBase
         UnityEditor.EditorApplication.isPlaying = false;
 #else
         Application.Quit();
+#endif
+    }
+
+    public void OnBtnResetData()
+    {
+#if UNITY_EDITOR
+        DataResetter.ResetAllData();
 #endif
     }
 }

@@ -10,7 +10,6 @@ public class UI_Practice : UIBase
 
     public override void Start()
     {
-        OPTIONSHOW.transform.parent.gameObject.SetActive(false);
         OPTIONSHOW.SetActive(false);
         PlayBGM();
     }

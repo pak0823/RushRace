@@ -15,7 +15,6 @@ public class UI_Ingame : UIBase
 
     public override void Start()
     {
-        OPTIONSHOW.transform.parent.gameObject.SetActive(false);
         OPTIONSHOW.SetActive(false);
 
         int stageNum = StageData.CurrentStageNum;

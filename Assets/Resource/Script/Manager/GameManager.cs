@@ -2,6 +2,7 @@
 
 using UnityEngine;
 using System;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,6 +11,11 @@ public class GameManager : MonoBehaviour
     public static event Action<int> OnMoneyChanged;
 
     private const string MONEY_KEY = "Money";
+
+    [Header("인게임 차량 프리팹")]
+    public GameObject[] ingameCarPrefabs;
+
+    private GameObject currentCar;
 
     private void Awake()
     {
@@ -23,6 +29,25 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    private void Start()
+    {
+        LoadMoney();
+
+        // 스테이지 씬인지 확인 후
+        if (SceneManager.GetActiveScene().name == "eSCENE_INGAME")
+            SpawnSelectedCar();
+    }
+
+    void SpawnSelectedCar()
+    {
+        int idx = Shared.CarDataManager.SelectedCarIndex;
+        GameObject prefab = (idx >= 0 && idx < ingameCarPrefabs.Length)
+            ? ingameCarPrefabs[idx]
+            : ingameCarPrefabs[0];
+        currentCar = Instantiate(prefab, Vector3.zero, Quaternion.identity);
+        // 이후 currentCar에 Car 컴포넌트가 붙어 있어야 합니다.
     }
 
     public void AddMoney(int amount)
