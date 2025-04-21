@@ -57,5 +57,7 @@ public class MissionResultUI : MonoBehaviour
 
         // 스테이지 선택 화면으로 돌아가기
         Shared.SceneMgr.ChangeScene(eSCENE.eSCENE_STAGE);
+
+        Shared.SoundManager.StopLoopSound();
     }
 }

@@ -10,6 +10,7 @@ public class UI_Title : UIBase
 
     public override void Start()
     {
+        Shared.SoundManager.StopLoopSound();
         OPTIONSHOW.SetActive(false);
         PlayBGM();
     }
@@ -18,7 +19,7 @@ public class UI_Title : UIBase
     public void OnBtnGoToLoading()
     {
         Shared.SoundManager.PlaySound(STARTBTNSOUND);
-        ChangeScene(eSCENE.eSCENE_LOADING);
+        Shared.SceneMgr.ChangeScene(eSCENE.eSCENE_LOADING);
     }
 
     public void OnBtnToggleCredits()

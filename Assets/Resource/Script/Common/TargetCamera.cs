@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LobbyCamera : MonoBehaviour
+public class TargetCamera : MonoBehaviour
 {
     public Transform target; // 따라다닐 대상
     public float distance = 10.0f; // 대상과의 거리
@@ -12,6 +12,11 @@ public class LobbyCamera : MonoBehaviour
     Vector3 offset = new Vector3(0, 7, -12); // 오프셋 값
 
     private Vector3 velocity = Vector3.zero; // 현재 속도
+
+    private void Awake()
+    {
+        Shared.TargetCamera = this;
+    }
 
     private void LateUpdate()
     {

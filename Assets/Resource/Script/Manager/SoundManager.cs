@@ -89,6 +89,14 @@ public class SoundManager : MonoBehaviour
 
     public void PlayLoopSound(SoundData data)
     {
+        // 일시정지 상태면 바로 리턴
+        if (Time.timeScale == 0f)
+            return;
+
+        // 미션이 끝났거나 활성화되지 않은 상태면 리턴
+        if (Shared.MissionManager != null && !Shared.MissionManager.IsMissionActive)
+            return;
+
         if (data == null || data.clip == null)
             return;
 

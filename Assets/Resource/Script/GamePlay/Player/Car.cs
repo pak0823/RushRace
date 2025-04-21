@@ -1,6 +1,9 @@
 // Car.cs - 자동차 주행 및 드리프트, 사운드 이펙트 제어
 
+using System.Linq;
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public partial class Car : MonoBehaviour
 {
@@ -17,11 +20,14 @@ public partial class Car : MonoBehaviour
     public Wheel rearLeftWheel;
     public Wheel rearRightWheel;
 
-    public float motorTorque;
-    public float brakeTorque;
-    public float maxSteerAngle;
-    public float decelerationRate;
-    public float maxSpeed;
+    [Header("능력치 데이터")]
+    public CarStats stats;
+
+    private float motorTorque;
+    private float brakeTorque;
+    private float maxSteerAngle;
+    private float decelerationRate;
+    private float maxSpeed;
 
     private Quaternion initialRotation;
     private Vector3 initialPosition;
@@ -34,12 +40,14 @@ public partial class Car : MonoBehaviour
 
     private Rigidbody rigidBody;
 
-    public SoundData ENGINE_LOW;
-    public SoundData ENGINE_HIGH;
-    public SoundData DRIFT;
+    [Header("사운드")]
+    public SoundData ENGINE_LOW;    //낮은 엔진 사운드
+    public SoundData ENGINE_HIGH;   //높은 엔진 사운드
+    public SoundData DRIFT;     //드리프트 사운드
 
     private bool isDriftSoundPlaying = false; // 드리프트 사운드 중복 방지 플래그
 
+    [Header("이펙트 효과")]
     public ParticleSystem driftSmoke_RL;    //연기 효과 파티클 할당
     public ParticleSystem driftSmoke_RR;
     public TrailRenderer skidEffect_RL;  // 스키드 효과 파티클 할당
@@ -57,6 +65,14 @@ public partial class Car : MonoBehaviour
 
         initialRotation = transform.rotation;
         initialPosition = transform.position;
+
+        // stats 에 정의된 값들로 초기화
+        motorTorque = stats.motorTorque;
+        brakeTorque = stats.brakeTorque;
+        maxSteerAngle = stats.maxSteerAngle;
+        maxSpeed = stats.maxSpeed;
+        decelerationRate = stats.decelerationRate;
+        //driftFactor = stats.driftFactor;
     }
 
     private void Update()
@@ -90,12 +106,24 @@ public partial class Car : MonoBehaviour
             }
         }
 
-        if (Input.GetAxis("Vertical") != 0)
+        // 미션이 끝났거나 일시정지 중엔 엔진 이펙트/사운드 모두 중지
+        if ((Shared.MissionManager != null && !Shared.MissionManager.IsMissionActive)
+            || Time.timeScale == 0f)
         {
-            Shared.SoundManager.PlayLoopSound(ENGINE_LOW);
-        }
-        else if (currentSpeed < 1)
             Shared.SoundManager.StopLoopSound();
+            return;
+        }
+
+        if (Time.timeScale != 0f)
+        {
+            if (currentSpeed > 1f)
+                Shared.SoundManager.PlayLoopSound(ENGINE_LOW);
+            else
+                Shared.SoundManager.StopLoopSound();
+        }
+        else
+            Shared.SoundManager.StopLoopSound();
+
     }
 
     private void FixedUpdate()
@@ -136,11 +164,11 @@ public partial class Car : MonoBehaviour
         }
 
         WheelHit hit;
-        if (frontLeftWheel.wheelCollider.GetGroundHit(out hit))
+        if (frontLeftWheel.wheelCollider.GetGroundHit(out hit)) //지정된 길 이외의 길을 갈 경우
         {
             if (hit.collider.sharedMaterial != null && hit.collider.sharedMaterial.name.Contains("Quad"))
             {
-                adjustedMotorTorque *= 0.3f;
+                adjustedMotorTorque *= 0.5f;
 
                 float slowdown = 20f * Time.fixedDeltaTime;
                 currentSpeed -= slowdown;
@@ -158,12 +186,24 @@ public partial class Car : MonoBehaviour
     {
         if (wheel.wheelCollider == null || wheel.wheelTransform == null) return;
 
-        Vector3 pos;
-        Quaternion rot;
-        wheel.wheelCollider.GetWorldPose(out pos, out rot);
+        Vector3 targetPos;
+        Quaternion targetRot;
+        wheel.wheelCollider.GetWorldPose(out targetPos, out targetRot);
 
-        wheel.wheelTransform.position = pos;
-        wheel.wheelTransform.rotation = rot;
+        // 부드러운 보간 계수 (높일수록 빠르게)
+        float smooth = Time.deltaTime * 10f;
+
+        // 위치는 Lerp, 회전은 Slerp
+        wheel.wheelTransform.position = Vector3.Lerp(
+            wheel.wheelTransform.position,
+            targetPos,
+            smooth
+        );
+        wheel.wheelTransform.rotation = Quaternion.Slerp(
+            wheel.wheelTransform.rotation,
+            targetRot,
+            smooth
+        );
     }
 
     private void ApplySteering(float steerAngle, float horizontalInput, bool isDrifting)

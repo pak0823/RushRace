@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    private int money = 0;
+    public int money = 0;
     public int Money => money;
     public static event Action<int> OnMoneyChanged;
 
@@ -14,8 +14,10 @@ public class GameManager : MonoBehaviour
 
     [Header("인게임 차량 프리팹")]
     public GameObject[] ingameCarPrefabs;
+    //public Transform carSpawnPoint;  // 씬에 배치한 스폰 포인트
 
     private GameObject currentCar;
+    public CarStats selectedStats;     // 플레이어가 선택한 SO
 
     private void Awake()
     {
@@ -24,6 +26,9 @@ public class GameManager : MonoBehaviour
             Shared.GameManager = this;
             DontDestroyOnLoad(gameObject);
             LoadMoney();
+
+            // 씬 로드 콜백 구독
+            SceneManager.sceneLoaded += OnSceneLoaded;
         }
         else
         {
@@ -31,13 +36,19 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void Start()
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        LoadMoney();
-
-        // 스테이지 씬인지 확인 후
-        if (SceneManager.GetActiveScene().name == "eSCENE_INGAME")
+        //'eSCENE_INGAME' 씬 또는 'eSCENE_PRACTICE'일 때만
+        if (scene.name == eSCENE.eSCENE_INGAME.ToString() || scene.name == eSCENE.eSCENE_PRACTICE.ToString())
+        {
             SpawnSelectedCar();
+            Debug.Log("자동차 생성됨 on " + scene.name);
+        }
+    }
+    private void OnDestroy()
+    {
+        // 안전하게 이벤트 해제
+        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
     void SpawnSelectedCar()
@@ -46,8 +57,10 @@ public class GameManager : MonoBehaviour
         GameObject prefab = (idx >= 0 && idx < ingameCarPrefabs.Length)
             ? ingameCarPrefabs[idx]
             : ingameCarPrefabs[0];
-        currentCar = Instantiate(prefab, Vector3.zero, Quaternion.identity);
-        // 이후 currentCar에 Car 컴포넌트가 붙어 있어야 합니다.
+        currentCar = Instantiate(prefab, Vector3.up, Quaternion.identity);
+        var stat = currentCar.GetComponent<Car>();
+        stat.stats = selectedStats;
+        Shared.TargetCamera.target = currentCar.gameObject.transform;
     }
 
     public void AddMoney(int amount)

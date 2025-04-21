@@ -79,7 +79,7 @@ public class UI_Stage : UIBase
         }
     }
 
-    public void OnBtnYes() => ChangeScene(eSCENE.eSCENE_INGAME);
+    public void OnBtnYes() => Shared.SceneMgr.ChangeScene(eSCENE.eSCENE_INGAME);
     public void OnBtnNo() => ToggleOptionWindow();
-    public void OnBtnBack() { ClickSound(); ChangeScene(eSCENE.eSCENE_LOBBY); }
+    public void OnBtnBack() { ClickSound(); Shared.SceneMgr.ChangeScene(eSCENE.eSCENE_LOBBY); }
 }

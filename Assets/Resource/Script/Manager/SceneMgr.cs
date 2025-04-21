@@ -20,6 +20,9 @@ public class SceneMgr : MonoBehaviour
 
     public void ChangeScene(eSCENE scene)
     {
+        Shared.SoundManager.StopPlaySound();
+        Shared.SoundManager.StopLoopSound();
+        Time.timeScale = 1f;
         SceneManager.LoadScene(scene.ToString());
     }
 }

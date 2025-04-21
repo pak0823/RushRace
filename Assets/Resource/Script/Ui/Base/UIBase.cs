@@ -70,16 +70,8 @@ public abstract class UIBase : MonoBehaviour
         }
     }
 
-    public void ChangeScene(eSCENE scene)
-    {
-        Shared.SceneMgr.ChangeScene(scene);
-        Shared.SoundManager.StopPlaySound();
-        Shared.SoundManager.StopLoopSound();
-        Time.timeScale = 1f;
-    }
-
-    public void OnBtnGoTitle() => ChangeScene(eSCENE.eSCENE_TITLE);
-    public void OnBtnLobby() => ChangeScene(eSCENE.eSCENE_LOBBY);
+    public void OnBtnGoTitle() => Shared.SceneMgr.ChangeScene(eSCENE.eSCENE_TITLE);
+    public void OnBtnLobby() => Shared.SceneMgr.ChangeScene(eSCENE.eSCENE_LOBBY);
 
     public void ClickSound() => Shared.SoundManager.PlaySound(CLICKSOUND);
     public void PlayBGM() => Shared.SoundManager.PlaySound(BGM);

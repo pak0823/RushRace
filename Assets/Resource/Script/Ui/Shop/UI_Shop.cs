@@ -13,6 +13,6 @@ public class UI_Shop : UIBase
     public void OnBtnBack()
     {
         ClickSound();
-        ChangeScene(eSCENE.eSCENE_LOBBY);
+        Shared.SceneMgr.ChangeScene(eSCENE.eSCENE_LOBBY);
     }
 }

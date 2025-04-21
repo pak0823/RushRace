@@ -6,82 +6,89 @@ public class ShopManager : MonoBehaviour
 {
     [Header("카메라 이동 설정")]
     public Camera mainCamera;
-    public Transform[] cameraPositions;  // 인스펙터에 Pos0, Pos1, Pos2 할당
+    public Transform[] cameraPositions;
     public float cameraMoveSpeed = 5f;
 
     [Header("차량 슬롯 & 정보")]
-    public Transform[] carSlots;         // CarSlot0, CarSlot1, CarSlot2
-    public string[] carNames;            // ["Speedster", "Roadster", "Racer"]
-    public int[] carPrices;           // [100, 150, 200]
+    public Transform[] carSlots;       // 슬롯 오브젝트
+    public CarStats[] carStats;        // CarStats 에셋들
+    public int[] carPrices;            // 가격
 
     [Header("UI 참조")]
-    public GameObject infoPanel;         // InfoPanel (처음엔 비활성화)
-    public Text carNameText;
-    public Text priceText;
+    public GameObject infoPanel;       // InfoPanel 루트
+    public CarInfo carInfo;            // CarInfo 컴포넌트
     public Button btnBuy;
     public Button btnBack;
     public GameObject selectBtn;
 
     private Coroutine camCoroutine;
-    private int currentIndex;  // OnSelectCar로 세팅된 인덱스
+    private int currentIndex;
 
-    // 1) 초기 카메라 상태 저장용
     private Vector3 initialCamPos;
     private Quaternion initialCamRot;
 
     private void Awake()
     {
-        // 초기 카메라 위치·회전 저장
         initialCamPos = mainCamera.transform.position;
         initialCamRot = mainCamera.transform.rotation;
-
-        // 버튼 리스너 연결
-        //btnBack.onClick.AddListener(() => CloseInfo());
+        Shared.ShopManager = this;
     }
 
-    /// <summary>
-    /// 외부에서 호출: UI 버튼에 CarIndex를 지정해 연결
-    /// </summary>
+    // 슬롯 버튼에 인덱스 지정해서 호출
     public void OnSelectCar(int index)
     {
         selectBtn.SetActive(false);
-
         currentIndex = index;
-        // 1) 정보 패널 표시
-        infoPanel.SetActive(true);
-        carNameText.text = carNames[index];
-        priceText.text = $"{carPrices[index]} $";
 
-        // 2) 카메라 이동
+        // 1) GameManager 에 선택된 Stats 저장
+        Shared.GameManager.selectedStats = carStats[index];
+
+        // 2) InfoPanel 열고 stats/price 표시
+        infoPanel.SetActive(true);
+        carInfo.SetStats(carStats[index], carPrices[index]);
+
+        // 3) 카메라 이동
         if (camCoroutine != null) StopCoroutine(camCoroutine);
         camCoroutine = StartCoroutine(MoveCameraTo(cameraPositions[index]));
 
-        if (Shared.CarDataManager.IsUnlocked(index))
-            btnBuy.interactable = false;  // 이미 구매된 차량은 구매 불가
-        else
-            btnBuy.interactable = Shared.GameManager.Money >= carPrices[index];
+        // 4) 구매 버튼 활성화 여부
+        bool unlocked = Shared.CarDataManager.IsUnlocked(index);
+        btnBuy.interactable = !unlocked && Shared.GameManager.Money >= carPrices[index];
     }
 
+    // 구매 버튼 클릭
     public void OnBuyClicked()
     {
-        Debug.Log(Shared.GameManager.Money);
         int price = carPrices[currentIndex];
-        if (Shared.GameManager.Money < price) return;  // 안전장치
+        if (Shared.GameManager.Money < price) return;
 
-        // 1) 코인 차감
+        // 코인 차감
         Shared.GameManager.SpendMoney(price);
-        // 2) 차량 잠금 해제 & 선택
+        // 잠금 해제 & 선택
         Shared.CarDataManager.Unlock(currentIndex);
         Shared.CarDataManager.Select(currentIndex);
-        // 3) 버튼 상태 업데이트
-        btnBuy.interactable = false;
 
-        Debug.Log(carPrices[currentIndex]+ "번째 인덱스" + "구매성공!");
+        // 다시 stats 할당 (안전하게)
+        Shared.GameManager.selectedStats = carStats[currentIndex];
+
+        // UI 갱신
+        btnBuy.interactable = false;
+        selectBtn.transform.GetChild(currentIndex - 1).gameObject.SetActive(false);
+        carSlots[currentIndex].gameObject.SetActive(false);
+
+        Debug.Log($"[{currentIndex}] 구매성공!");
     }
 
-    /// <summary>
-    /// 카메라를 target 위치/회전으로 부드럽게 이동시키는 코루틴
-    /// </summary>
+    // InfoPanel 닫고 카메라 복귀
+    public void CloseInfo()
+    {
+        infoPanel.SetActive(false);
+        if (camCoroutine != null) StopCoroutine(camCoroutine);
+        camCoroutine = StartCoroutine(MoveCameraBack());
+        selectBtn.SetActive(true);
+    }
+
+    // 카메라를 target 위치/회전으로 부드럽게 이동시키는 코루틴
     private IEnumerator MoveCameraTo(Transform target)
     {
         // 이동 전 위치/회전 저장
@@ -100,9 +107,7 @@ public class ShopManager : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// 초기 위치로 돌아가는 코루틴
-    /// </summary>
+    // 초기 위치로 돌아가는 코루틴
     private IEnumerator MoveCameraBack()
     {
         Vector3 startPos = mainCamera.transform.position;
@@ -118,19 +123,5 @@ public class ShopManager : MonoBehaviour
             mainCamera.transform.rotation = Quaternion.Slerp(startRot, endRot, t);
             yield return null;
         }
-    }
-
-    /// <summary>
-    /// 정보 패널 닫기 & 카메라 원위치
-    /// </summary>
-    public void CloseInfo()
-    {
-        infoPanel.SetActive(false);
-
-        // 2) 카메라 원위치 이동
-        if (camCoroutine != null) StopCoroutine(camCoroutine);
-        camCoroutine = StartCoroutine(MoveCameraBack());
-
-        selectBtn.SetActive(true);
     }
 }

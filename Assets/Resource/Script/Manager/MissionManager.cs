@@ -4,9 +4,9 @@ using UnityEngine;
 public class MissionManager : MonoBehaviour
 {
     [Header("스테이지별 코인 목표치")]
-    public int[] stageTargetCoinCounts = { 50, 75, 100 };
+    private int[] stageTargetCoinCounts = { 10, 75, 100 };
     [Header("스테이지별 제한 시간(초)")]
-    public float[] stageMissionTimes = { 90f, 120f, 150f };
+    private float[] stageMissionTimes = { 120f, 150f, 180f };
 
     private int targetCoinCount;          // 런타임에 이 값을 사용
     private float missionTime;            // 런타임에 이 값을 사용
@@ -17,6 +17,8 @@ public class MissionManager : MonoBehaviour
     private bool isMissionEnded = false;
 
     public GameObject Panel;
+
+    public bool IsMissionActive => isMissionActive;
 
     private void Start()
     {
@@ -77,6 +79,7 @@ public class MissionManager : MonoBehaviour
     {
         isMissionActive = false;
         isMissionEnded = true;
+        Shared.SoundManager.StopLoopSound();
 
         if (success)
         {
