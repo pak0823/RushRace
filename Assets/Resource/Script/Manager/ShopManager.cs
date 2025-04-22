@@ -34,6 +34,16 @@ public class ShopManager : MonoBehaviour
         Shared.ShopManager = this;
     }
 
+    private void Start()
+    {
+        // 언락된 차는 슬롯 자체를 꺼 버린다
+        for (int i = 0; i < carSlots.Length; i++)
+        {
+            if (Shared.CarDataManager.IsUnlocked(i))
+                carSlots[i].gameObject.SetActive(false);
+        }
+    }
+
     // 슬롯 버튼에 인덱스 지정해서 호출
     public void OnSelectCar(int index)
     {
@@ -75,6 +85,7 @@ public class ShopManager : MonoBehaviour
         btnBuy.interactable = false;
         selectBtn.transform.GetChild(currentIndex - 1).gameObject.SetActive(false);
         carSlots[currentIndex].gameObject.SetActive(false);
+        CloseInfo();
 
         Debug.Log($"[{currentIndex}] 구매성공!");
     }

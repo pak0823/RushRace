@@ -971,6 +971,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7864938699317879870, guid: 66bfa960c9c7d174ba8992b237769998, type: 3}
+      propertyPath: money
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7864938699317879870, guid: 66bfa960c9c7d174ba8992b237769998, type: 3}
       propertyPath: ingameCarPrefabs.Array.size
       value: 7
       objectReference: {fileID: 0}

@@ -2,7 +2,6 @@
 
 using System.Collections;
 using UnityEngine;
-using static UnityEditor.PlayerSettings;
 
 public class RandomSpawn : MonoBehaviour
 {

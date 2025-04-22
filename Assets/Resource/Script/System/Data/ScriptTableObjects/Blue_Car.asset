@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0326becb55a22934bb7677ef21f5c5a0, type: 3}
   m_Name: Blue_Car
   m_EditorClassIdentifier: 
-  carId: blue
-  motorTorque: 1
-  brakeTorque: 2
-  maxSteerAngle: 3
-  maxSpeed: 4
-  decelerationRate: 5
-  driftFactor: 6
+  carId: Blue_B
+  motorTorque: 700
+  brakeTorque: 1100
+  maxSteerAngle: 30
+  maxSpeed: 200
+  decelerationRate: 45
+  driftFactor: 1.3

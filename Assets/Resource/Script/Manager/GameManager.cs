@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public int money = 0;
+    public int money;
     public int Money => money;
     public static event Action<int> OnMoneyChanged;
 
@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
     public GameObject[] ingameCarPrefabs;
     //public Transform carSpawnPoint;  // 씬에 배치한 스폰 포인트
 
-    private GameObject currentCar;
+    public GameObject currentCar;
     public CarStats selectedStats;     // 플레이어가 선택한 SO
 
     private void Awake()
@@ -59,7 +59,8 @@ public class GameManager : MonoBehaviour
             : ingameCarPrefabs[0];
         currentCar = Instantiate(prefab, Vector3.up, Quaternion.identity);
         var stat = currentCar.GetComponent<Car>();
-        stat.stats = selectedStats;
+        if(idx > 0)
+            stat.stats = selectedStats;
         Shared.TargetCamera.target = currentCar.gameObject.transform;
     }
 

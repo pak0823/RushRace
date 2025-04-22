@@ -4,7 +4,7 @@ using UnityEngine;
 public class MissionManager : MonoBehaviour
 {
     [Header("스테이지별 코인 목표치")]
-    private int[] stageTargetCoinCounts = { 10, 75, 100 };
+    private int[] stageTargetCoinCounts = { 50, 75, 100 };
     [Header("스테이지별 제한 시간(초)")]
     private float[] stageMissionTimes = { 120f, 150f, 180f };
 

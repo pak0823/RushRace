@@ -10,6 +10,11 @@ public class CarInfo : MonoBehaviour
     public Text accelText;
     public Text steerText;
 
+    private void Start()
+    {
+        gameObject.SetActive(false);
+    }
+
     // 외부에서 호출해서 화면에 표시할 Stats 세팅
     public void SetStats(CarStats stats, int price)
     {

@@ -2,6 +2,7 @@
 
 using System.Linq;
 using Unity.VisualScripting.Antlr3.Runtime.Misc;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -15,31 +16,6 @@ public partial class Car : MonoBehaviour
         public float rotationSpeedMultiplier;
     }
 
-    public Wheel frontLeftWheel;
-    public Wheel frontRightWheel;
-    public Wheel rearLeftWheel;
-    public Wheel rearRightWheel;
-
-    [Header("능력치 데이터")]
-    public CarStats stats;
-
-    private float motorTorque;
-    private float brakeTorque;
-    private float maxSteerAngle;
-    private float decelerationRate;
-    private float maxSpeed;
-
-    private Quaternion initialRotation;
-    private Vector3 initialPosition;
-
-    private float _horizontalInput;
-    private float _verticalInput;
-    private bool _isBraking;
-    private bool _isDrifting;
-    public float currentSpeed { get; private set; }
-
-    private Rigidbody rigidBody;
-
     [Header("사운드")]
     public SoundData ENGINE_LOW;    //낮은 엔진 사운드
     public SoundData ENGINE_HIGH;   //높은 엔진 사운드
@@ -52,6 +28,38 @@ public partial class Car : MonoBehaviour
     public ParticleSystem driftSmoke_RR;
     public TrailRenderer skidEffect_RL;  // 스키드 효과 파티클 할당
     public TrailRenderer skidEffect_RR;
+
+    [Header("능력치 데이터")]
+    public CarStats stats;
+    public float motorTorque;
+    public float brakeTorque;
+    public float maxSteerAngle;
+    public float decelerationRate;
+    public float maxSpeed;
+    public float driftFactor;
+
+    public Wheel frontLeftWheel;
+    public Wheel frontRightWheel;
+    public Wheel rearLeftWheel;
+    public Wheel rearRightWheel;
+
+    private Quaternion initialRotation;
+    private Vector3 initialPosition;
+
+    [Header("모바일 터치 조이스틱")]
+    public VirtualJoystick joystick;  // 에디터에서 할당
+
+    private float _horizontalInput;
+    private float _verticalInput;
+    private bool _isBraking;
+    private bool _isDrifting;
+
+    [HideInInspector] public bool ForceBraking = false;
+    public float currentSpeed { get; private set; }
+
+    private Rigidbody rigidBody;
+
+    
 
     private void Start()
     {
@@ -72,7 +80,14 @@ public partial class Car : MonoBehaviour
         maxSteerAngle = stats.maxSteerAngle;
         maxSpeed = stats.maxSpeed;
         decelerationRate = stats.decelerationRate;
-        //driftFactor = stats.driftFactor;
+        driftFactor = stats.driftFactor;
+
+        frontLeftWheel.wheelCollider.ConfigureVehicleSubsteps(5f, 3, 10);
+        frontRightWheel.wheelCollider.ConfigureVehicleSubsteps(5f, 3, 10);
+        rearLeftWheel.wheelCollider.ConfigureVehicleSubsteps(5f, 3, 10);
+        rearRightWheel.wheelCollider.ConfigureVehicleSubsteps(5f, 3, 10);
+
+        rigidBody.interpolation = RigidbodyInterpolation.Interpolate;
     }
 
     private void Update()
@@ -82,9 +97,17 @@ public partial class Car : MonoBehaviour
         UpdateWheelPose(rearLeftWheel);
         UpdateWheelPose(rearRightWheel);
 
-        _verticalInput = Input.GetAxis("Vertical");
-        _horizontalInput = Input.GetAxis("Horizontal");
-        _isBraking = Input.GetKey(KeyCode.Space);
+        _verticalInput = Application.isMobilePlatform
+                       ? joystick.Vertical
+                       : Input.GetAxis("Vertical");
+        _horizontalInput = Application.isMobilePlatform
+                       ? joystick.Horizontal
+                       : Input.GetAxis("Horizontal");
+        _isBraking = Application.isMobilePlatform
+                       ? ForceBraking
+                       : Input.GetKey(KeyCode.Space);
+
+        _isBraking = ForceBraking || Input.GetKey(KeyCode.Space);
 
         if (skidEffect_RL != null && skidEffect_RR != null)
         {
@@ -123,7 +146,6 @@ public partial class Car : MonoBehaviour
         }
         else
             Shared.SoundManager.StopLoopSound();
-
     }
 
     private void FixedUpdate()
@@ -136,7 +158,7 @@ public partial class Car : MonoBehaviour
 
         float baseSteerSensitivity = localDrift ? 1.0f : 0.2f;
         float steerSensitivity = Mathf.Lerp(baseSteerSensitivity, 1.0f, Mathf.Clamp01(currentSpeed / maxSpeed));
-        float driftSteerFactor = localDrift ? 1.25f : 1.0f;
+        float driftSteerFactor = localDrift ? driftFactor : 1.0f;
 
         float targetSteer = _horizontalInput * maxSteerAngle * steerSensitivity * driftSteerFactor;
         float steerLerpSpeed = localDrift ? 5f : 2.5f;

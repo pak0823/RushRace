@@ -18,9 +18,6 @@ EditorBuildSettings:
     path: Assets/Scenes/eSCENE_PRACTICE.unity
     guid: 161fab4a826f25c4ab3c7fc212a8df8f
   - enabled: 1
-    path: Assets/Scenes/eSCENE_REPAIR.unity
-    guid: 0bcb8d3f3a151f841a4260db70eba73a
-  - enabled: 1
     path: Assets/Scenes/eSCENE_SHOP.unity
     guid: 8e27a0966c8d4c047ac9f902e11bbdf8
   - enabled: 1
