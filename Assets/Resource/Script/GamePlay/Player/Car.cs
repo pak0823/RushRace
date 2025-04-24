@@ -1,7 +1,4 @@
 // Car.cs - 자동차 주행 및 드리프트, 사운드 이펙트 제어
-
-using System.Linq;
-using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
