@@ -46,15 +46,10 @@ public partial class Car : MonoBehaviour
     private Quaternion initialRotation;
     private Vector3 initialPosition;
 
-    [Header("모바일 터치 조이스틱")]
-    public VirtualJoystick joystick;  // 에디터에서 할당
-
     private float _horizontalInput;
     private float _verticalInput;
     private bool _isBraking;
     private bool _isDrifting;
-
-    [HideInInspector] public bool ForceBraking = false;
     public float currentSpeed { get; private set; }
 
     private Rigidbody rigidBody;
@@ -97,17 +92,9 @@ public partial class Car : MonoBehaviour
         UpdateWheelPose(rearLeftWheel);
         UpdateWheelPose(rearRightWheel);
 
-        _verticalInput = Application.isMobilePlatform
-                       ? joystick.Vertical
-                       : Input.GetAxis("Vertical");
-        _horizontalInput = Application.isMobilePlatform
-                       ? joystick.Horizontal
-                       : Input.GetAxis("Horizontal");
-        _isBraking = Application.isMobilePlatform
-                       ? ForceBraking
-                       : Input.GetKey(KeyCode.Space);
-
-        _isBraking = ForceBraking || Input.GetKey(KeyCode.Space);
+        _verticalInput = Input.GetAxis("Vertical");
+        _horizontalInput = Input.GetAxis("Horizontal");
+        _isBraking = Input.GetKey(KeyCode.Space);
 
         if (skidEffect_RL != null && skidEffect_RR != null)
         {
@@ -146,6 +133,7 @@ public partial class Car : MonoBehaviour
         }
         else
             Shared.SoundManager.StopLoopSound();
+
     }
 
     private void FixedUpdate()

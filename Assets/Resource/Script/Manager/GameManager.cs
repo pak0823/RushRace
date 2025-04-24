@@ -3,10 +3,12 @@
 using UnityEngine;
 using System;
 using UnityEngine.SceneManagement;
+using System.Runtime.ConstrainedExecution;
 
 public class GameManager : MonoBehaviour
 {
     public int money;
+    private const int moneyExchange = 10;
     public int Money => money;
     public static event Action<int> OnMoneyChanged;
 
@@ -54,19 +56,19 @@ public class GameManager : MonoBehaviour
     void SpawnSelectedCar()
     {
         int idx = Shared.CarDataManager.SelectedCarIndex;
+        Vector3 spown = new Vector3(-1, 1, 11);
+
         GameObject prefab = (idx >= 0 && idx < ingameCarPrefabs.Length)
             ? ingameCarPrefabs[idx]
             : ingameCarPrefabs[0];
-        currentCar = Instantiate(prefab, Vector3.up, Quaternion.identity);
-        var stat = currentCar.GetComponent<Car>();
-        if(idx > 0)
-            stat.stats = selectedStats;
+        currentCar = Instantiate(prefab, spown, Quaternion.identity);
+
         Shared.TargetCamera.target = currentCar.gameObject.transform;
     }
 
     public void AddMoney(int amount)
     {
-        money += amount;
+        money += amount * moneyExchange;
         SaveMoney();
         OnMoneyChanged?.Invoke(money);
         Debug.Log($"µ· È¹µæ: +{amount} ¡æ ÃÑÇÕ {money}");

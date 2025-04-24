@@ -48,7 +48,6 @@ public class UI_Lobby : UIBase
 
         ClickSound();
         StartCoroutine(FadeNotification());
-        //Shared.SceneMgr.ChangeScene(eSCENE.eSCENE_REPAIR);
     }
 
     IEnumerator FadeNotification()

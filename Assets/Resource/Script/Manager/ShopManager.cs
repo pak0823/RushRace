@@ -51,7 +51,7 @@ public class ShopManager : MonoBehaviour
         currentIndex = index;
 
         // 1) GameManager 에 선택된 Stats 저장
-        Shared.GameManager.selectedStats = carStats[index];
+       // Shared.GameManager.selectedStats = carStats[index];
 
         // 2) InfoPanel 열고 stats/price 표시
         infoPanel.SetActive(true);

@@ -380,6 +380,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1415d9d0250aea44bbe130495c38a17a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ENGINE_LOW: {fileID: 11400000, guid: 238630d9b3c4a104bb8c7d475305b11e, type: 2}
+  ENGINE_HIGH: {fileID: 11400000, guid: 230d27b56843b3e4f8da73baa1e14011, type: 2}
+  DRIFT: {fileID: 11400000, guid: 66cfd4cd72c8ee8429572bba7ee7daed, type: 2}
+  driftSmoke_RL: {fileID: 1284978078372618383}
+  driftSmoke_RR: {fileID: 2865790640810119821}
+  skidEffect_RL: {fileID: 8077482595187031318}
+  skidEffect_RR: {fileID: 2067687726448040388}
+  stats: {fileID: 11400000, guid: 1571e4635178dcd4f80c59fdeaa552bb, type: 2}
+  motorTorque: 600
+  brakeTorque: 1000
+  maxSteerAngle: 30
+  decelerationRate: 50
+  maxSpeed: 200
+  driftFactor: 0
   frontLeftWheel:
     wheelCollider: {fileID: 643436772051291040}
     wheelTransform: {fileID: 1375928499914264263}
@@ -396,20 +410,8 @@ MonoBehaviour:
     wheelCollider: {fileID: 6721235449119894616}
     wheelTransform: {fileID: 5522088464764837296}
     rotationSpeedMultiplier: 0.6
-  stats: {fileID: 0}
-  motorTorque: 600
-  brakeTorque: 1000
-  maxSteerAngle: 30
-  decelerationRate: 50
-  maxSpeed: 200
-  driftFactor: 0
-  ENGINE_LOW: {fileID: 11400000, guid: 238630d9b3c4a104bb8c7d475305b11e, type: 2}
-  ENGINE_HIGH: {fileID: 11400000, guid: 230d27b56843b3e4f8da73baa1e14011, type: 2}
-  DRIFT: {fileID: 11400000, guid: 66cfd4cd72c8ee8429572bba7ee7daed, type: 2}
-  driftSmoke_RL: {fileID: 1284978078372618383}
-  driftSmoke_RR: {fileID: 2865790640810119821}
-  skidEffect_RL: {fileID: 8077482595187031318}
-  skidEffect_RR: {fileID: 2067687726448040388}
+  joystick: {fileID: 0}
+  ForceBraking: 0
 --- !u!1 &3263149667454813771
 GameObject:
   m_ObjectHideFlags: 0

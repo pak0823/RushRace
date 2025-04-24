@@ -27,7 +27,11 @@ public class StageIcon : MonoBehaviour
         // 스테이지 잠금 여부 확인
         if (!Shared.StageData.IsStageUnlocked(stageNum))
         {
-            Debug.Log($"스테이지 {stageNum+1}는 아직 잠겨있습니다.");
+            if(!Shared.UI_Stage.isnoti)
+            {
+                Shared.UI_Stage.notiText.text = $"선택한 맵은 아직 잠겨 있습니다.";
+                StartCoroutine(Shared.UI_Stage.FadeNotification());
+            }
             return;
         }
         if (Shared.UI_Stage != null)

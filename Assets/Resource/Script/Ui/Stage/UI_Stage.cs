@@ -1,15 +1,21 @@
 // UI_Stage.cs
 
-using UnityEngine;
+using System.Collections;
 using UnityEngine.UI;
+using UnityEngine;
 
 public class UI_Stage : UIBase
 {
     public Text stageText;
-
     private int currentStageNum;
     private string currentStageName;
 
+    public GameObject NotificationWindow;
+    private float notificationFadeDuration = 2.5f;
+    public bool isnoti = false;
+    public Text notiText;
+
+    CanvasGroup notifCG;
     // 락 이미지를 나타내는 오브젝트 참조 추가
     public GameObject stage2Rock;
     public GameObject stage3Rock;
@@ -21,6 +27,12 @@ public class UI_Stage : UIBase
         OPTIONSHOW.SetActive(false);
 
         UpdateStageLockUI();
+
+        notifCG = NotificationWindow.GetComponent<CanvasGroup>();
+        if (notifCG == null)
+            notifCG = NotificationWindow.AddComponent<CanvasGroup>();
+        notifCG.alpha = 0f;
+        NotificationWindow.SetActive(false);
     }
 
     // 스테이지의 잠금 상태에 따라 락 이미지 비활성화 처리
@@ -44,13 +56,6 @@ public class UI_Stage : UIBase
 
     public void OnStageIconClicked(int stageNum)
     {
-        // 스테이지 선택 전에 잠금 여부를 체크합니다.
-        if (!Shared.StageData.IsStageUnlocked(stageNum))
-        {
-            Debug.LogError($"스테이지 {stageNum}는 아직 잠겨 있습니다.");
-            return;
-        }
-
         if (!isOptionShow)
         {
             currentStageNum = stageNum;
@@ -77,6 +82,36 @@ public class UI_Stage : UIBase
             case 2: return "3Stage";
             default: return "error";
         }
+    }
+
+    public IEnumerator FadeNotification()
+    {
+        NotificationWindow.SetActive(true);
+        isnoti = true;
+
+        float half = notificationFadeDuration * 0.5f;
+        float t = 0f;
+
+        // Fade In (0 → 1)
+        while (t < half)
+        {
+            notifCG.alpha = t / half;
+            t += Time.deltaTime;
+            yield return null;
+        }
+        notifCG.alpha = 1f;
+
+        // Fade Out (1 → 0)
+        t = 0f;
+        while (t < half)
+        {
+            notifCG.alpha = 1f - (t / half);
+            t += Time.deltaTime;
+            yield return null;
+        }
+        notifCG.alpha = 0f;
+        NotificationWindow.SetActive(false);
+        isnoti = false;
     }
 
     public void OnBtnYes() => Shared.SceneMgr.ChangeScene(eSCENE.eSCENE_INGAME);
